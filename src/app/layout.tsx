@@ -17,9 +17,52 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
 });
 
+import { seo } from "@/lib/data";
+
 export const metadata: Metadata = {
-  title: "Sridatta Bandreddi | AI Engineer",
-  description: "AI Engineer & Full Stack Developer Portfolio",
+  metadataBase: new URL(seo.og.url),
+  title: {
+    default: seo.title,
+    template: `%s | ${seo.title}`,
+  },
+  description: seo.description,
+  openGraph: {
+    title: seo.og.title,
+    description: seo.description,
+    url: seo.og.url,
+    siteName: seo.title,
+    images: [
+      {
+        url: "/icons/ms-icon-310x310.png",
+        width: 310,
+        height: 310,
+        alt: seo.title,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: seo.title,
+    description: seo.description,
+    images: ["/icons/ms-icon-310x310.png"],
+    creator: "@cosmobean",
+  },
+  icons: {
+    icon: [
+      { url: "/icons/ms-icon-70x70.png", sizes: "70x70" },
+      { url: "/icons/ms-icon-144x144.png", sizes: "144x144" },
+      { url: "/icons/ms-icon-150x150.png", sizes: "150x150" },
+      { url: "/icons/ms-icon-310x310.png", sizes: "310x310" },
+    ],
+    apple: [
+      { url: "/icons/ms-icon-144x144.png" },
+    ],
+  },
+  other: {
+    "msapplication-TileImage": "/icons/ms-icon-144x144.png",
+  },
 };
 
 export default function RootLayout({
