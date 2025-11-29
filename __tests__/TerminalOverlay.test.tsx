@@ -146,4 +146,60 @@ describe('TerminalOverlay Component', () => {
         // Should just add a new line, effectively doing nothing visible except clearing input
         expect(input).toHaveValue('')
     })
+
+    it('closes when overlay background is clicked', () => {
+        render(<TerminalOverlay isOpen={true} onClose={mockClose} />)
+        // The overlay background is the outer div.
+        // It has fixed inset-0.
+        // We can find it by class or just the first div?
+        // Let's assume it's the first child of the portal/root if we rendered it directly.
+        // Actually, we can find by role? No role.
+        // Let's find by text content? No.
+        // Let's use the fact that it has `onClick={onClose}`.
+
+        // We can find the outer container.
+        // It has class "fixed inset-0".
+        // Let's try to find by a test id if we added one, but we didn't.
+        // Let's try to click the element that wraps everything.
+        // In the test render, it's the first child of the container?
+        // render returns container.
+        // const { container } = render(...)
+        // fireEvent.click(container.firstChild)
+
+        const { container } = render(<TerminalOverlay isOpen={true} onClose={mockClose} />)
+        const overlay = container.firstChild
+        if (!overlay) throw new Error('Overlay not found')
+
+        fireEvent.click(overlay)
+        expect(mockClose).toHaveBeenCalled()
+    })
+
+    it('does NOT close when terminal window is clicked (propagation)', () => {
+        render(<TerminalOverlay isOpen={true} onClose={mockClose} />)
+        const terminalWindow = screen.getByText(/guest@sridatta-portfolio/i).closest('div')?.parentElement?.parentElement
+        // The header is inside the window.
+        // "guest@..." is in a span, inside a div, inside the header div, inside the window div.
+        // Let's just find the text "Welcome to the portfolio terminal" which is in the body.
+        // Or just click the input.
+        const input = screen.getByRole('textbox')
+        fireEvent.click(input)
+        expect(mockClose).not.toHaveBeenCalled()
+    })
+
+    it('focuses input when terminal body is clicked', () => {
+        render(<TerminalOverlay isOpen={true} onClose={mockClose} />)
+        const input = screen.getByRole('textbox')
+
+        // Blur input first
+        input.blur()
+        expect(input).not.toHaveFocus()
+
+        // Click on the body text
+        const bodyText = screen.getByText(/Welcome to the portfolio terminal/i)
+        fireEvent.click(bodyText)
+
+        // The click handler is on the parent container of the text.
+        // It should trigger focus.
+        expect(input).toHaveFocus()
+    })
 })
