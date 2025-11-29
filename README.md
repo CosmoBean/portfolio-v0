@@ -1,7 +1,6 @@
-# Hi, I'm Sri Datta Bandreddi 👋
-
 [![codecov](https://codecov.io/gh/cosmobean/portfolio-v0/branch/main/graph/badge.svg)](https://codecov.io/gh/cosmobean/portfolio-v0)
 
+# Hi, I'm Sri Datta Bandreddi 👋
 ## AI Engineer & Full Stack Developer
 
 I am a curious person who likes to understand what's under the hood. I find joy in building end-to-end solutions, including scalable designs, and mentoring others. Based in India, I specialize in building scalable AI systems and full-stack applications.
