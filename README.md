@@ -3,7 +3,7 @@
 # Hi, I'm Sri Datta Bandreddi 👋
 ## AI Engineer & Full Stack Developer
 
-I am a curious person who likes to understand what's under the hood. I find joy in building end-to-end solutions, including scalable designs, and mentoring others. Based in India, I specialize in building scalable AI systems and full-stack applications.
+I am a curious person who likes to understand what's under the hood. I find joy in building end-to-end solutions, including scalable designs, and mentoring others. I specialize in building scalable AI systems and full-stack applications.
 
 ### 🚀 About Me
 

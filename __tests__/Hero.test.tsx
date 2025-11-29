@@ -13,7 +13,7 @@ jest.mock('@/components/AnimatedVisual', () => {
 describe('Hero Component', () => {
     it('renders the correct name', () => {
         render(<Hero />)
-        expect(screen.getByText(/Sri Datta Bandreddi/i)).toBeInTheDocument()
+        expect(screen.getByText(/Sri Datta Ganesh Bandreddi/i)).toBeInTheDocument()
     })
 
     it('does NOT render the "Available for work" badge', () => {

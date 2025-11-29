@@ -13,7 +13,7 @@ export const seo = {
 };
 
 export const greeting = {
-    title: "Sri Datta Bandreddi",
+    title: "Sri Datta Ganesh Bandreddi",
     logo_name: "Cosmobean",
     nickname: "cosmobean",
     subTitle: "AI Engineer & Full Stack Developer",
@@ -29,11 +29,11 @@ export const socialMediaLinks = [
     },
     {
         name: "LinkedIn",
-        link: "https://www.linkedin.com/in/sri-datta-bandreddi/",
+        link: "https://linkedin.com/in/sri-datta-bandreddi",
     },
     {
         name: "Gmail",
-        link: "mailto:sridatta.bandreddi@gmail.com",
+        link: "mailto:sbandred@andrew.cmu.edu",
     },
 ];
 
@@ -49,36 +49,16 @@ export const skills = {
                 "⚡ Experience with development and deployment of custom OAUTH and RBAC solutions",
             ],
             softwareSkills: [
-                {
-                    skillName: "Go",
-                },
-                {
-                    skillName: "Python",
-                },
-                {
-                    skillName: "Fast API",
-                },
-                {
-                    skillName: "Swagger",
-                },
-                {
-                    skillName: "Prometheus",
-                },
-                {
-                    skillName: "Grafana",
-                },
-                {
-                    skillName: "JavaScript",
-                },
-                {
-                    skillName: "ReactJS",
-                },
-                {
-                    skillName: "NextJS",
-                },
-                {
-                    skillName: "tailwindCSS",
-                },
+                { skillName: "Go" },
+                { skillName: "Java(Springboot)" },
+                { skillName: "Python" },
+                { skillName: "Fast API" },
+                { skillName: "JavaScript" },
+                { skillName: "ReactJS" },
+                { skillName: "NextJS" },
+                { skillName: "TailwindCSS" },
+                { skillName: "System Design" },
+                { skillName: "Load Testing" },
             ],
         },
         {
@@ -88,45 +68,21 @@ export const skills = {
                 "⚡ Experience working on multiple cloud architectures from containers to kubernetes pods",
                 "⚡ Hosting and maintaining web application instances along with integration of databases",
                 "⚡ Setting up CI/CD pipelines for automated testing and deployments",
-                "⚡ Setting up streaming jobs, serverless functions, scheduled actions and cost optimization with regards to availability of service ",
+                "⚡ Setting up streaming jobs, serverless functions, scheduled actions and cost optimization",
             ],
             softwareSkills: [
-                {
-                    skillName: "Github",
-                },
-                {
-                    skillName: "AWS",
-                },
-                {
-                    skillName: "AWS Lambda",
-                },
-                {
-                    skillName: "GCP",
-                },
-                {
-                    skillName: "Vercel",
-                },
-                {
-                    skillName: "PostgreSQL",
-                },
-                {
-                    skillName: "Redis",
-                },
-                {
-                    skillName: "MongoDB",
-                },
-                {
-                    skillName: "Neo4j",
-                },
-                {
-                    skillName: "Kafka",
-                },
-                {
-                    skillName: "Docker",
-                },
-                {
-                    skillName: "Kubernetes",
-                },
+                { skillName: "AWS" },
+                { skillName: "Docker" },
+                { skillName: "Kubernetes" },
+                { skillName: "Grafana" },
+                { skillName: "Prometheus" },
+                { skillName: "OpenTelemetry" },
+                { skillName: "Airflow" },
+                { skillName: "Jenkins/Github Actions" },
+                { skillName: "PostgreSQL" },
+                { skillName: "Redis" },
+                { skillName: "Kafka" },
+                { skillName: "Elasticsearch" },
             ],
         },
         {
@@ -134,22 +90,19 @@ export const skills = {
             fileName: "DataScienceImg",
             skills: [
                 "⚡ Developing scalable production ready models for various deeplearning and statistical models",
-                "⚡ Experience of working with NLP projects",
-                "⚡ Experience with building machine learning models using Tensorflow, Keras, PyTorch, and more",
+                "⚡ Experience of working with NLP projects and Large Language Models",
+                "⚡ Experience with building machine learning models using PyTorch, Keras, TensorFlow",
             ],
             softwareSkills: [
-                {
-                    skillName: "Tensorflow",
-                },
-                {
-                    skillName: "Keras",
-                },
-                {
-                    skillName: "Pandas",
-                },
-                {
-                    skillName: "Python",
-                },
+                { skillName: "Python" },
+                { skillName: "PyTorch" },
+                { skillName: "Keras" },
+                { skillName: "TensorFlow" },
+                { skillName: "NumPy" },
+                { skillName: "Pandas" },
+                { skillName: "Scikit-learn" },
+                { skillName: "Hugging Face Transformers" },
+                { skillName: "Neo4J" },
             ],
         },
     ],
@@ -158,15 +111,25 @@ export const skills = {
 export const degrees = {
     degrees: [
         {
-            title: "Visvesvaraya National Institute of Technology",
-            subtitle: "B.Tech. in Mechanical Engineering",
-            logo_path: "vnit-logo-280.png",
-            alt_name: "VNIT Nagpur",
-            duration: "2018 - 2022",
+            title: "Carnegie Mellon University",
+            subtitle: "Master of Science in AI Engineering, Biomedical Engineering",
+            logo_path: "images/cmu_logo.png", // Placeholder or missing
+            alt_name: "CMU",
+            duration: "Dec 2026",
             descriptions: [
-                "⚡ I have opted for elective software engineering subject: Data Structures and Algorithms",
-                "⚡ Apart from this, I have done courses on machine learning and fullstack development.",
-                "⚡ Student Mentor for around 120 first year students, and Student Council Representative for Mechanical Engineering Dept.",
+                "⚡ Specializing in AI Engineering and Biomedical Engineering.",
+            ],
+            website_link: "https://www.cmu.edu/",
+        },
+        {
+            title: "Visvesvaraya National Institute of Technology",
+            subtitle: "Bachelor of Technology, Mechanical Engineering",
+            logo_path: "images/vnit-logo-280.png",
+            alt_name: "VNIT Nagpur",
+            duration: "Jul 2022",
+            descriptions: [
+                "⚡ Student Council Representative, Mechanical Engineering Dept (Aug 2020 - Jul 2022)",
+                "⚡ Student Mentor, Mechanical Engineering Dept (Aug 2019 - Jul 2022)",
             ],
             website_link: "https://vnit.ac.in/",
         },
@@ -178,7 +141,7 @@ export const certifications = {
         {
             title: "Nanotechnology and Nanosensors, Part 1",
             subtitle: "- Technion - Israel Institute of Technology",
-            logo_path: "coursera_logo.png",
+            logo_path: "images/coursera_logo.png",
             certificate_link: "https://www.coursera.org/account/accomplishments/records/XTJ0XG1Z51YU",
             alt_name: "Coursera",
             color_code: "#2A73CC",
@@ -188,7 +151,7 @@ export const certifications = {
             title:
                 "Introduction to Mechanical Engineering Design and Manufacturing with Fusion 360 (with Honors)",
             subtitle: "- Autodesk",
-            logo_path: "coursera_logo.png",
+            logo_path: "images/coursera_logo.png",
             certificate_link: "https://www.coursera.org/account/accomplishments/records/85XYDN9CDTD7",
             alt_name: "Coursera",
             color_code: "#2A73CC",
@@ -198,7 +161,7 @@ export const certifications = {
             title:
                 "Modeling and Design for Mechanical Engineers with Autodesk Fusion 360 (with Honors)",
             subtitle: "- Autodesk",
-            logo_path: "coursera_logo.png",
+            logo_path: "images/coursera_logo.png",
             certificate_link: "https://www.coursera.org/account/accomplishments/records/8ZPN6FVUBYNE",
             alt_name: "Coursera",
             color_code: "#2A73CC",
@@ -207,7 +170,7 @@ export const certifications = {
         {
             title: "Introduction to Computer Science and Programming using Python",
             subtitle: "- John Guttag ",
-            logo_path: "mitx-500.png",
+            logo_path: "images/mitx-500.png",
             certificate_link:
                 "https://courses.edx.org/certificates/629e45ddd6594323bfbf3ffa71146d3d",
             alt_name: "MITx",
@@ -216,7 +179,7 @@ export const certifications = {
         {
             title: "Modern Robotics, Foundations of Robot Motion",
             subtitle: "- Northwestern University",
-            logo_path: "coursera_logo.png",
+            logo_path: "images/coursera_logo.png",
             certificate_link:
                 "https://coursera.org/share/59d3ae11b13dfc242e6746cb02a66a67",
             alt_name: "Coursera",
@@ -229,7 +192,7 @@ export const experience = {
     title: "Experience",
     subtitle: "Work, Internship and Volunteership",
     description:
-        "I have mainly worked as a Fullstack Developer. I have been keen in building end to end solution, including scalable designs. I am curious person, who likes to understand what's under the hood and  I find joy in mentoring as well.",
+        "I have mainly worked as a Fullstack Developer and AI Engineer. I have been keen in building end to end solution, including scalable designs. I am curious person, who likes to understand what's under the hood and I find joy in mentoring as well.",
     header_image_path: "experience.svg",
     sections: [
         {
@@ -240,22 +203,22 @@ export const experience = {
                     title: "Product Development Engineer",
                     company: "Phenom",
                     company_url: "https://phenom.com/",
-                    logo_path: "phenom_logo.png",
-                    duration: "Dec 2023 - Present",
-                    location: "Hyderabad, Telangana",
+                    logo_path: "images/phenom_logo.png",
+                    duration: "Dec 2023 - Jul 2025",
+                    location: "Hyderabad, India",
                     description:
-                        "Have contributed to development of multiple products, and have been a part of the core team to rework and stabilize a product based on analytics and genrative AI from scratch. Have contributed to designing and deploying scalable systems.",
+                        "Tuned and scaled PostgreSQL by enhancing horizontal scaling through sharding to improve user query response times for AI-driven filters by 40% for 100+ clients. Benchmarked 8 databases for knowledge graph applications by evaluating performance, scalability, and storage efficiency. Led and mentored a team of six through architecture changes and product refactoring, delivering scalable solutions within 3 months. Developed a central cryptographic service (encryption and decryption) for internal use in a multi-tenant system, enabling secure data management across 10+ teams. Awarded “Phenomenal Award” for performance in Q1 and Q2 in 2024.",
                     color: "#000000",
                 },
                 {
                     title: "Software Engineer",
                     company: "BYJU'S",
                     company_url: "https://byjus.com/",
-                    logo_path: "byjus_logo.png",
+                    logo_path: "images/byjus_logo.png",
                     duration: "Jul 2022 - Dec 2023",
-                    location: "Hyderabad, Telangana",
+                    location: "Hyderabad, India",
                     description:
-                        "Contributed as part of the Identity management system at BYJU'S. Contributed to the devlopment of many features, as well as led the development of Admin console for an internal RBAC system. Mentored multiple interns to groom them for individual contributions. Mainly worked with AWS, close monitoring and development of practices for efficient deployments, as well as cost monitoring.",
+                        "Delivered backend service for in-house CRM in 2 months, using Java-springboot and spring-templates accelerating product rollout. Optimized AWS ECS scaling, using scheduled scaling based on user-patterns, slashing costs by 70% while maintaining reliability. Mentored two interns, creating a roadmap of learning to help with adjustment and contribution to key projects. Launched multi-channel communication features, boosting customer notification effectiveness by 20%. Directed ReactJS-based authentication/authorization app, cutting external service reliance by 50% and leading a 3-person team to timely completion.",
                     color: "#fc1f20",
                 },
             ],
@@ -264,14 +227,14 @@ export const experience = {
             title: "Internships",
             experiences: [
                 {
-                    title: "Machine Learning Intern",
-                    company: "Phenom People",
+                    title: "Intern (Machine Learning)",
+                    company: "Phenom",
                     company_url: "https://www.phenom.com/",
-                    logo_path: "phenom_icon.png",
+                    logo_path: "images/phenom_icon.png",
                     duration: "May 2021 - Jun 2022",
-                    location: "Hyderabad, Telangana",
+                    location: "Hyderabad, India",
                     description:
-                        "worked as part of a four-person team, collaborated to develop a classification model. This model was specifically designed for an internal use-case, with the primary aim of enhancing the validation process for other models that were deployed within the same environment. Learned and leveraged various machine learning algorithms.  Developed two database package clients for migrations.",
+                        "Processed 3 data-sources with NLP techniques to build persona classification models, improving recommendation accuracy based on user actions. Deployed one validation service at production scale, collaborating via APIs and databases to integrate with core product. Built two database package clients to facilitate database migration and testing, improving code reusability for DB queries.",
                     color: "#000000",
                 },
             ],
@@ -285,18 +248,23 @@ export const projectsHeader = {
     avatar_image_path: "projects_image.svg",
 };
 
-// Placeholder projects data
 export const projects = [
     {
-        title: "AI Portfolio Generator",
-        description: "A dynamic portfolio generator using Next.js and AI.",
-        techStack: ["Next.js", "TypeScript", "Tailwind CSS", "OpenAI API"],
-        link: "https://github.com/sridatta/portfolio-v0",
+        title: "EMG Hand Gesture Recognition",
+        description: "Designed a neural-network to classify hand gestures from EMG signals achieving 85-92% accuracy using PyTorch LSTM/CNN models with attention mechanisms.",
+        techStack: ["PyTorch", "Python", "Deep Learning"],
+        link: "#",
     },
     {
-        title: "Ebenezer App",
-        description: "A secure, zero-knowledge encryption app for personal data.",
-        techStack: ["React Native", "Node.js", "PostgreSQL", "Docker"],
+        title: "YouTube Digest",
+        description: "Created a tool generating concise video summaries with Python, FastAPI, and Gemini APIs, reducing watch time by up to 70%. Streamlined asynchronous video processing.",
+        techStack: ["Python", "FastAPI", "Gemini API"],
+        link: "#",
+    },
+    {
+        title: "Trello Personal Clone",
+        description: "Developed a Trello-like tracker with Next.js, and Zustand, featuring drag-and-drop, image uploads, and Google auth. Integrated GPT API for task summaries.",
+        techStack: ["Next.js", "Zustand", "GPT API"],
         link: "#",
     },
 ];

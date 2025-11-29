@@ -19,6 +19,6 @@ describe('Data Integrity', () => {
         expect(githubLink?.link).toBe('https://github.com/cosmobean')
 
         const linkedinLink = socialMediaLinks.find(link => link.name === 'LinkedIn')
-        expect(linkedinLink?.link).toBe('https://www.linkedin.com/in/sri-datta-bandreddi/')
+        expect(linkedinLink?.link).toBe('https://linkedin.com/in/sri-datta-bandreddi')
     })
 })

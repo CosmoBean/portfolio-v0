@@ -56,7 +56,7 @@ const TerminalOverlay: React.FC<TerminalOverlayProps> = ({ isOpen, onClose }) =>
                     <div>
                         <p className="text-accent font-bold">{greeting.title}</p>
                         <p>{greeting.subTitle}</p>
-                        <p className="mt-2 text-textMuted">AI Engineer & Full Stack Developer based in India.</p>
+                        <p className="mt-2 text-textMuted">AI Engineer & Full Stack Developer.</p>
                     </div>
                 );
                 break;

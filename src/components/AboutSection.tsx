@@ -15,7 +15,7 @@ const AboutSection = () => {
                     className="space-y-8"
                 >
                     <h2 className="text-3xl md:text-4xl font-bold text-textPrimary">
-                        <span className="text-accent">04.</span> About Me
+                        <span className="text-accent">05.</span> About Me
                     </h2>
 
                     <div className="relative inline-block">
@@ -26,7 +26,7 @@ const AboutSection = () => {
                     </div>
 
                     <p className="text-textMuted max-w-2xl mx-auto pt-8">
-                        {greeting.subTitle}. Based in India, I specialize in building scalable AI systems and full-stack applications. My journey involves continuous learning and applying cutting-edge technologies to solve real-world problems.
+                        {greeting.subTitle}. Based in Pittsburgh, PA, USA, I specialize in building scalable AI systems and full-stack applications. My journey involves continuous learning and applying cutting-edge technologies to solve real-world problems.
                     </p>
                 </motion.div>
             </div>

@@ -26,7 +26,7 @@ const ContactSection = () => {
                     className="space-y-8"
                 >
                     <h2 className="text-3xl md:text-4xl font-bold text-textPrimary">
-                        <span className="text-accent">05.</span> {contactPageData.contactSection.title}
+                        <span className="text-accent">06.</span> {contactPageData.contactSection.title}
                     </h2>
 
                     <p className="text-textMuted max-w-2xl mx-auto text-lg">
