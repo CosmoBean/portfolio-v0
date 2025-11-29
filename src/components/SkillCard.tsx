@@ -9,11 +9,6 @@ interface SkillProps {
     skills: string[];
     softwareSkills: {
         skillName: string;
-        fontAwesomeClassname: string;
-        style?: {
-            color?: string;
-            backgroundColor?: string;
-        };
     }[];
 }
 

@@ -1,5 +1,3 @@
-import { LucideIcon } from "lucide-react";
-
 export const settings = {
     isSplash: false,
 };
@@ -28,20 +26,14 @@ export const socialMediaLinks = [
     {
         name: "Github",
         link: "https://github.com/cosmobean",
-        fontAwesomeIcon: "fa-github",
-        backgroundColor: "#181717",
     },
     {
         name: "LinkedIn",
         link: "https://www.linkedin.com/in/sri-datta-bandreddi/",
-        fontAwesomeIcon: "fa-linkedin-in",
-        backgroundColor: "#0077B5",
     },
     {
         name: "Gmail",
         link: "mailto:sridatta.bandreddi@gmail.com",
-        fontAwesomeIcon: "fa-google",
-        backgroundColor: "#D14836",
     },
 ];
 
@@ -59,74 +51,33 @@ export const skills = {
             softwareSkills: [
                 {
                     skillName: "Go",
-                    fontAwesomeClassname: "simple-icons:go",
-                    style: {
-                        color: "#00ADD8",
-                    },
                 },
                 {
                     skillName: "Python",
-                    fontAwesomeClassname: "simple-icons:python",
-                    style: {
-                        color: "#3776AB",
-                    },
                 },
                 {
                     skillName: "Fast API",
-                    fontAwesomeClassname: "simple-icons:fastapi",
-                    style: {
-                        color: "#009688",
-                    },
                 },
                 {
                     skillName: "Swagger",
-                    fontAwesomeClassname: "simple-icons:swagger",
-                    style: {
-                        color: "#85EA2D",
-                    },
                 },
                 {
                     skillName: "Prometheus",
-                    fontAwesomeClassname: "simple-icons:prometheus",
-                    style: {
-                        color: "#E6522C",
-                    },
                 },
                 {
                     skillName: "Grafana",
-                    fontAwesomeClassname: "simple-icons:grafana",
-                    style: {
-                        color: "#F46800",
-                    },
                 },
                 {
                     skillName: "JavaScript",
-                    fontAwesomeClassname: "simple-icons:javascript",
-                    style: {
-                        backgroundColor: "#000000",
-                        color: "#F7DF1E",
-                    },
                 },
                 {
                     skillName: "ReactJS",
-                    fontAwesomeClassname: "simple-icons:react",
-                    style: {
-                        color: "#61DAFB",
-                    },
                 },
                 {
                     skillName: "NextJS",
-                    fontAwesomeClassname: "simple-icons:nextdotjs",
-                    style: {
-                        color: "#000000",
-                    },
                 },
                 {
                     skillName: "tailwindCSS",
-                    fontAwesomeClassname: "simple-icons:tailwindcss",
-                    style: {
-                        color: "#06B6D4",
-                    },
                 },
             ],
         },
@@ -142,87 +93,39 @@ export const skills = {
             softwareSkills: [
                 {
                     skillName: "Github",
-                    fontAwesomeClassname: "simple-icons:github",
-                    style: {
-                        color: "#181717",
-                    },
                 },
                 {
                     skillName: "AWS",
-                    fontAwesomeClassname: "simple-icons:amazonaws",
-                    style: {
-                        color: "#FF9900",
-                    },
                 },
                 {
                     skillName: "AWS Lambda",
-                    fontAwesomeClassname: "simple-icons:awslambda",
-                    style: {
-                        color: "#FF9900",
-                    },
                 },
                 {
                     skillName: "GCP",
-                    fontAwesomeClassname: "simple-icons:googlecloud",
-                    style: {
-                        color: "#4285F4",
-                    },
                 },
                 {
                     skillName: "Vercel",
-                    fontAwesomeClassname: "simple-icons:vercel",
-                    style: {
-                        color: "#000000",
-                    },
                 },
                 {
                     skillName: "PostgreSQL",
-                    fontAwesomeClassname: "simple-icons:postgresql",
-                    style: {
-                        color: "#336791",
-                    },
                 },
                 {
                     skillName: "Redis",
-                    fontAwesomeClassname: "simple-icons:redis",
-                    style: {
-                        color: "#DC382D",
-                    },
                 },
                 {
                     skillName: "MongoDB",
-                    fontAwesomeClassname: "simple-icons:mongodb",
-                    style: {
-                        color: "#47A248",
-                    },
                 },
                 {
                     skillName: "Neo4j",
-                    fontAwesomeClassname: "simple-icons:neo4j",
-                    style: {
-                        color: "#4581C3",
-                    },
                 },
                 {
                     skillName: "Kafka",
-                    fontAwesomeClassname: "simple-icons:apachekafka",
-                    style: {
-                        color: "#231F20",
-                    },
                 },
                 {
                     skillName: "Docker",
-                    fontAwesomeClassname: "simple-icons:docker",
-                    style: {
-                        color: "#1488C6",
-                    },
                 },
                 {
                     skillName: "Kubernetes",
-                    fontAwesomeClassname: "simple-icons:kubernetes",
-                    style: {
-                        color: "#326CE5",
-                    },
                 },
             ],
         },
@@ -237,33 +140,15 @@ export const skills = {
             softwareSkills: [
                 {
                     skillName: "Tensorflow",
-                    fontAwesomeClassname: "logos-tensorflow",
-                    style: {
-                        backgroundColor: "transparent",
-                    },
                 },
                 {
                     skillName: "Keras",
-                    fontAwesomeClassname: "simple-icons:keras",
-                    style: {
-                        backgroundColor: "white",
-                        color: "#D00000",
-                    },
                 },
                 {
                     skillName: "Pandas",
-                    fontAwesomeClassname: "simple-icons:pandas",
-                    style: {
-                        backgroundColor: "#150458",
-                    },
                 },
                 {
                     skillName: "Python",
-                    fontAwesomeClassname: "ion-logo-python",
-                    style: {
-                        backgroundColor: "transparent",
-                        color: "#3776AB",
-                    },
                 },
             ],
         },
@@ -422,28 +307,5 @@ export const contactPageData = {
         profile_image_path: "blue-gradient-circle-380.png",
         description:
             "Feel free to reach out via the links provided below. I'm always eager to hear your feedback or explore collaboration opportunities on projects.",
-    },
-    blogSection: {
-        title: "Blogs",
-        subtitle:
-            "For individual fundamental empowerment, I like to write powerful lessons that create impact on each of the reader individually to change the core of their character.",
-        link: "https://blogs.ashutoshhathidara.com/",
-        avatar_image_path: "blogs_image.svg",
-    },
-    addressSection: {
-        title: "Address",
-        subtitle:
-            "Ambavadi vas, Kanodar, T.A.-Palanpur, Dist.-Banaskantha, Gujarat - 385520",
-        locality: "Kanodar",
-        country: "IN",
-        region: "Gujarat",
-        postalCode: "385520",
-        streetAddress: "Ambavadi vas",
-        avatar_image_path: "address_image.svg",
-        location_map_link: "https://goo.gl/maps/MpMqtRZytFchMkZ76",
-    },
-    phoneSection: {
-        title: "",
-        subtitle: "",
     },
 };
