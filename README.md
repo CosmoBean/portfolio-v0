@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hi, I'm Sri Datta Bandreddi 👋
 
-## Getting Started
+[![codecov](https://codecov.io/gh/cosmobean/portfolio-v0/branch/main/graph/badge.svg)](https://codecov.io/gh/cosmobean/portfolio-v0)
 
-First, run the development server:
+## AI Engineer & Full Stack Developer
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+I am a curious person who likes to understand what's under the hood. I find joy in building end-to-end solutions, including scalable designs, and mentoring others. Based in India, I specialize in building scalable AI systems and full-stack applications.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🚀 About Me
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+-   **Role**: AI Engineer & Full Stack Developer
+-   **Focus**: Building scalable production-ready models, NLP, and full-stack web applications.
+-   **Location**: Hyderabad, Telangana, India
+-   **Resume**: [View Resume](https://drive.google.com/file/d/1NiZzGqSiUIyH-qJfMaAL2Qa4xoFhybi5/view?usp=sharing)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🛠️ Skills
 
-## Learn More
+**Full Stack Development**
+-   ReactJS, NextJS, TailwindCSS
+-   Go, Python, FastAPI
+-   Prometheus, Grafana
 
-To learn more about Next.js, take a look at the following resources:
+**Cloud Infra-Architecture**
+-   AWS, GCP, Vercel
+-   Docker, Kubernetes, Kafka
+-   PostgreSQL, Redis, MongoDB
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Data Science & AI**
+-   Tensorflow, Keras, PyTorch
+-   NLP, Deep Learning
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 💼 Experience
 
-## Deploy on Vercel
+-   **Product Development Engineer** @ [Phenom](https://phenom.com/) (Dec 2023 - Present)
+-   **Software Engineer** @ [BYJU'S](https://byjus.com/) (Jul 2022 - Dec 2023)
+-   **Machine Learning Intern** @ [Phenom People](https://www.phenom.com/) (May 2021 - Jun 2022)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 📫 Connect with me
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+-   [GitHub](https://github.com/cosmobean)
+-   [LinkedIn](https://www.linkedin.com/in/sri-datta-bandreddi/)
+-   [Email](mailto:sridatta.bandreddi@gmail.com)
+
+---
+
+*This portfolio is built with Next.js, Tailwind CSS, and Framer Motion.*
