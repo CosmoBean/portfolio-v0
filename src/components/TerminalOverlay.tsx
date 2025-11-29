@@ -102,7 +102,7 @@ const TerminalOverlay: React.FC<TerminalOverlayProps> = ({ isOpen, onClose }) =>
             case "contact":
                 response = (
                     <div>
-                        <p>Contact me at: <a href={`mailto:${socialMediaLinks?.[2]?.link || ""}`} className="text-accent underline">sridatta.bandreddi@gmail.com</a></p>
+                        <p>Contact me at: <a href={`mailto:${socialMediaLinks[2].link}`} className="text-accent underline">sridatta.bandreddi@gmail.com</a></p>
                         <p>GitHub: <a href={greeting.githubProfile} target="_blank" className="text-accent underline">{greeting.githubProfile}</a></p>
                     </div>
                 );
@@ -156,7 +156,7 @@ const TerminalOverlay: React.FC<TerminalOverlayProps> = ({ isOpen, onClose }) =>
                                 <TerminalIcon size={16} className="text-accent" />
                                 <span className="text-textMuted">guest@sridatta-portfolio:~</span>
                             </div>
-                            <button onClick={onClose} className="text-textMuted hover:text-white transition-colors">
+                            <button onClick={onClose} className="text-textMuted hover:text-white transition-colors" aria-label="Close Terminal">
                                 <X size={18} />
                             </button>
                         </div>
