@@ -3,10 +3,10 @@ export const settings = {
 };
 
 export const seo = {
-    title: "Sridatta Bandreddi Portfolio",
+    title: "Sri Datta Bandreddi's Portfolio",
     description: "AI Engineer Portfolio",
     og: {
-        title: "Sridatta Bandreddi Portfolio",
+        title: "Sri Datta Bandreddi's Portfolio",
         type: "website",
         url: "https://sridatta.dev",
     },

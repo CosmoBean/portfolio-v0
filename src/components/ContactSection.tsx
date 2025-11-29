@@ -49,7 +49,7 @@ const ContactSection = () => {
                     </div>
 
                     <div className="pt-16 text-sm text-textMuted font-mono">
-                        <p>Designed & Built by Sridatta Bandreddi</p>
+                        <p>Designed & Built by Sri Datta Bandreddi</p>
                         <p className="opacity-50">© {new Date().getFullYear()}</p>
                     </div>
                 </motion.div>

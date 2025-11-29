@@ -33,9 +33,9 @@ export const metadata: Metadata = {
     siteName: seo.title,
     images: [
       {
-        url: "/icons/ms-icon-310x310.png",
-        width: 310,
-        height: 310,
+        url: "/icons/apple-touch-icon.png",
+        width: 180,
+        height: 180,
         alt: seo.title,
       },
     ],
@@ -46,23 +46,20 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: seo.title,
     description: seo.description,
-    images: ["/icons/ms-icon-310x310.png"],
+    images: ["/icons/apple-touch-icon.png"],
     creator: "@cosmobean",
   },
   icons: {
     icon: [
-      { url: "/icons/ms-icon-70x70.png", sizes: "70x70" },
-      { url: "/icons/ms-icon-144x144.png", sizes: "144x144" },
-      { url: "/icons/ms-icon-150x150.png", sizes: "150x150" },
-      { url: "/icons/ms-icon-310x310.png", sizes: "310x310" },
+      { url: "/icons/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/icons/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icons/favicon.ico", sizes: "any" },
     ],
     apple: [
-      { url: "/icons/ms-icon-144x144.png" },
+      { url: "/icons/apple-touch-icon.png" },
     ],
   },
-  other: {
-    "msapplication-TileImage": "/icons/ms-icon-144x144.png",
-  },
+  manifest: "/icons/manifest.json",
 };
 
 export default function RootLayout({
