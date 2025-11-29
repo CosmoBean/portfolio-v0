@@ -9,7 +9,7 @@ I am a curious person who likes to understand what's under the hood. I find joy 
 
 -   **Role**: AI Engineer & Full Stack Developer
 -   **Focus**: Building scalable production-ready models, NLP, and full-stack web applications.
--   **Location**: Hyderabad, Telangana, India
+-   **Location**: Pittsburgh, United States
 -   **Resume**: [View Resume](https://drive.google.com/file/d/1NiZzGqSiUIyH-qJfMaAL2Qa4xoFhybi5/view?usp=sharing)
 
 ### 🛠️ Skills
