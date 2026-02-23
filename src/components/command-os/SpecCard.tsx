@@ -16,7 +16,9 @@ export default function SpecCard({ spec }: SpecCardProps) {
     >
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <p className="font-mono text-[10px] tracking-[0.18em] text-[color:var(--color-gold)]">SPEC_ID // {spec.slug}</p>
+          <p className="font-mono text-[10px] tracking-[0.18em] text-[color:var(--color-gold)]">
+            SPEC_ID {"//"} {spec.slug}
+          </p>
           <h3 className="mt-2 text-lg font-semibold text-textPrimary group-hover:text-[color:var(--color-gold)]">
             {spec.title}
           </h3>
@@ -43,7 +45,9 @@ export default function SpecCard({ spec }: SpecCardProps) {
       </div>
 
       <div className="mt-4 flex items-center justify-between text-sm text-textMuted group-hover:text-textPrimary">
-        <span>{spec.domain.toUpperCase()} // {spec.module.toUpperCase().replace(/-/g, "_")}</span>
+        <span>
+          {spec.domain.toUpperCase()} {"//"} {spec.module.toUpperCase().replace(/-/g, "_")}
+        </span>
         <ChevronRight size={16} />
       </div>
     </Link>

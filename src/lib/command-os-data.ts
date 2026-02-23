@@ -1,4 +1,4 @@
-import { contactPageData, experience, greeting, projects, skills, socialMediaLinks } from "@/lib/data";
+import { contactPageData, experience, greeting, skills, socialMediaLinks } from "@/lib/data";
 
 export type ModuleId = "core-logic" | "neural-pathways" | "biomedical-signal";
 
