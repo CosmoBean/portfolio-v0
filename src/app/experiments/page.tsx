@@ -1,6 +1,14 @@
+import type { Metadata } from "next";
 import CommandPageShell from "@/components/command-os/CommandPageShell";
 import StatusBadge from "@/components/command-os/StatusBadge";
 import { experimentLogs } from "@/lib/command-os-data";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildMetadata({
+  title: "Experiments & Postmortems",
+  description: "Iteration logs, dead ends, and engineering lessons from ongoing research and product work.",
+  path: "/experiments",
+});
 
 export default function ExperimentsPage() {
   return (

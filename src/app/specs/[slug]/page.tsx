@@ -1,8 +1,10 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import CommandPageShell from "@/components/command-os/CommandPageShell";
 import StatusBadge from "@/components/command-os/StatusBadge";
 import { getSpecBySlug, projectSpecs } from "@/lib/command-os-data";
+import { buildMetadata } from "@/lib/seo";
 
 interface SpecPageProps {
   params: Promise<{ slug: string }>;
@@ -10,6 +12,25 @@ interface SpecPageProps {
 
 export async function generateStaticParams() {
   return projectSpecs.map((spec) => ({ slug: spec.slug }));
+}
+
+export async function generateMetadata({ params }: SpecPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const spec = getSpecBySlug(slug);
+
+  if (!spec) {
+    return buildMetadata({
+      title: "Spec Not Found",
+      description: "Requested specification could not be found.",
+      path: "/experiments",
+    });
+  }
+
+  return buildMetadata({
+    title: spec.title,
+    description: spec.summary,
+    path: `/specs/${spec.slug}`,
+  });
 }
 
 export default async function SpecDetailPage({ params }: SpecPageProps) {

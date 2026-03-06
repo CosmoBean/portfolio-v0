@@ -1,7 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import CommandPageShell from "@/components/command-os/CommandPageShell";
 import { contactLinks } from "@/lib/command-os-data";
 import { contactPageData, greeting } from "@/lib/data";
+import { buildMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildMetadata({
+  title: "Contact",
+  description: "Contact links, recruiter path, and profile details for Sri Datta Bandreddi.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (
