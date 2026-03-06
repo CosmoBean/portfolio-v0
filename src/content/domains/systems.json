@@ -1,0 +1,20 @@
+{
+  "name": "Scalable Systems",
+  "slug": "systems",
+  "icon": "Server",
+  "tagline": "Backends that survive real traffic under real constraints.",
+  "description": "PostgreSQL sharding for multi-tenant isolation, cloud cost optimization from 70% ECS waste, backend CRM services handling production scale. Systems work means understanding where performance actually breaks and fixing it before users notice.",
+  "skills": [
+    "PostgreSQL",
+    "Redis",
+    "Docker",
+    "Go",
+    "Node.js",
+    "WebSockets",
+    "REST APIs",
+    "Database Sharding",
+    "Cloud Architecture",
+    "Performance Tuning"
+  ],
+  "color": "#b8860b"
+}

@@ -1,0 +1,20 @@
+{
+  "name": "AI/ML - LLM & Inference",
+  "slug": "ai-ml",
+  "icon": "Cpu",
+  "tagline": "From NLP pipelines to LLM-powered products - building intelligence that ships.",
+  "description": "Production NLP classification, retrieval-augmented generation, and LLM inference optimization. This domain is about taking model capabilities and turning them into reliable, measurable systems - not demos.",
+  "skills": [
+    "Transformers",
+    "RAG",
+    "LangChain",
+    "Prompt Engineering",
+    "NLP",
+    "Text Classification",
+    "Embeddings",
+    "Vector DBs",
+    "FastAPI",
+    "Inference Optimization"
+  ],
+  "color": "#c47d3e"
+}

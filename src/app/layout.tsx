@@ -1,28 +1,22 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Space_Grotesk, Playfair_Display } from "next/font/google";
-import "./globals.css";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
+import { Fraunces, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
+import "@/styles/globals.css";
+import Footer from "@/components/layout/Footer";
+import Nav from "@/components/layout/Nav";
+import PageTransition from "@/components/layout/PageTransition";
+import GrainOverlay from "@/components/shared/GrainOverlay";
+import { seo, socialMediaLinks } from "@/lib/data";
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
 });
-
-const playfairDisplay = Playfair_Display({
-  variable: "--font-display",
-  subsets: ["latin"],
-});
-
-import { seo } from "@/lib/data";
 
 export const metadata: Metadata = {
   metadataBase: new URL(seo.og.url),
@@ -67,6 +61,19 @@ export const metadata: Metadata = {
   manifest: "/icons/manifest.json",
 };
 
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Sri Datta Bandreddi",
+  alternateName: "Cosmobean",
+  description: "AI engineer focused on production systems, applied ML, and biomedical signal intelligence.",
+  jobTitle: "AI Engineer & Full Stack Developer",
+  sameAs: socialMediaLinks
+    .map((link) => link.link)
+    .filter((link) => link.startsWith("http")),
+  url: seo.og.url,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -75,9 +82,20 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} ${spaceGrotesk.variable} ${playfairDisplay.variable} antialiased bg-background text-textPrimary selection:bg-accent selection:text-black`}
+        className={`${fraunces.variable} ${jetbrainsMono.variable} bg-obsidian text-text-primary antialiased selection:bg-accent-amber selection:text-obsidian`}
       >
-        {children}
+        <Script
+          id="person-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
+        <GrainOverlay />
+        <Nav />
+        <div className="relative z-10 flex min-h-screen flex-col">
+          <div className="h-24 shrink-0" aria-hidden />
+          <PageTransition>{children}</PageTransition>
+          <Footer />
+        </div>
       </body>
     </html>
   );

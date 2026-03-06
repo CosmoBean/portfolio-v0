@@ -1,0 +1,19 @@
+{
+  "name": "Agentic AI",
+  "slug": "agentic-ai",
+  "icon": "Bot",
+  "tagline": "Autonomous systems that reason, plan, and act with accountability.",
+  "description": "Building AI agents that combine tool use, structured reasoning, and domain knowledge. From clinical monitoring agents that merge XGBoost predictions with LLM explanations, to deterministic RAG systems that maintain precision over creativity.",
+  "skills": [
+    "LLM Agents",
+    "Tool Use",
+    "RAG",
+    "SHAP",
+    "XGBoost",
+    "Planning Architectures",
+    "Structured Output",
+    "Function Calling",
+    "Evaluation Frameworks"
+  ],
+  "color": "#d4a053"
+}

@@ -1,0 +1,20 @@
+{
+  "name": "MLOps & DevOps",
+  "slug": "mlops",
+  "icon": "GitBranch",
+  "tagline": "The infrastructure that makes ML experiments reproducible and deployable.",
+  "description": "Experiment tracking with MLFlow, containerized training pipelines, CI/CD for model deployment, and GPU infrastructure management. The unsexy work that separates notebook prototypes from production ML systems.",
+  "skills": [
+    "MLFlow",
+    "Docker",
+    "CI/CD",
+    "GitHub Actions",
+    "AWS ECS",
+    "GPU Management",
+    "RAPIDS/cuDF",
+    "Spark ML",
+    "Monitoring",
+    "Infrastructure as Code"
+  ],
+  "color": "#c47d3e"
+}

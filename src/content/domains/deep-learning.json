@@ -1,0 +1,20 @@
+{
+  "name": "Deep Learning",
+  "slug": "deep-learning",
+  "icon": "Brain",
+  "tagline": "Neural architectures, training dynamics, and optimization from first principles.",
+  "description": "From implementing backpropagation by hand to building attention-augmented CNNs for biosignal classification, this domain covers the foundational machinery of modern AI. Every architecture choice is grounded in understanding what the math actually does.",
+  "skills": [
+    "PyTorch",
+    "TensorFlow",
+    "CNN",
+    "RNN/LSTM",
+    "Attention Mechanisms",
+    "ResNets",
+    "GCNs",
+    "Backpropagation",
+    "Optimization",
+    "GPU Training"
+  ],
+  "color": "#d4a053"
+}
