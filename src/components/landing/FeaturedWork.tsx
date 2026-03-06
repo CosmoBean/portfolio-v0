@@ -20,7 +20,7 @@ const featuredProjects = [
     variant: "amber",
   },
   {
-    category: "Biomedical ML",
+    category: "AI4Healthcare",
     description:
       "Built sequence and convolutional models for EMG gesture classification, then iterated on attention-assisted architectures to improve robustness across gesture classes.",
     href: "/projects/emg-gesture-recognition",
@@ -51,8 +51,10 @@ function ProjectVisual({ variant }: { variant: "amber" | "copper" }) {
 
   return (
     <div className={`relative h-56 overflow-hidden rounded-[1.75rem] border border-border-subtle bg-gradient-to-br ${gradient}`}>
+      <div className="signal-grid pointer-events-none absolute inset-0 opacity-35" />
+      <div className="signal-sweep pointer-events-none absolute left-[-14%] top-[16%] h-24 w-[62%] rounded-full bg-white/8 blur-3xl" />
       <div className="absolute inset-0 opacity-70 [background-image:linear-gradient(to_right,rgba(255,255,255,0.09)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.09)_1px,transparent_1px)] [background-size:26px_26px]" />
-      <div className="absolute inset-4 rounded-[1.4rem] border border-white/10 bg-black/20 p-4">
+      <div className="ambient-mesh absolute inset-4 rounded-[1.4rem] border border-white/10 bg-black/20 p-4">
         <div className="mb-4 flex items-center justify-between">
           <div className="h-2 w-20 rounded-full bg-white/30" />
           <div className="flex gap-1.5">
@@ -102,7 +104,7 @@ export default function FeaturedWork() {
         <SectionHeader
           eyebrow="Featured Work"
           title="Selected builds with measurable outcomes."
-          subtitle="Three projects that best represent the mix: platform-scale performance work, biomedical modeling, and applied AI product execution."
+          subtitle="Three projects that best represent the mix: platform-scale performance work, healthcare-facing ML, and applied AI product execution."
         />
 
         <div className="mt-10 overflow-x-auto pb-4">

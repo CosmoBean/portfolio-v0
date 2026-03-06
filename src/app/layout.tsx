@@ -66,7 +66,7 @@ const personSchema = {
   "@type": "Person",
   name: "Sri Datta Bandreddi",
   alternateName: "Cosmobean",
-  description: "AI engineer focused on production systems, applied ML, and biomedical signal intelligence.",
+  description: "AI engineer focused on production systems, applied ML, and AI4Healthcare.",
   jobTitle: "AI Engineer & Full Stack Developer",
   sameAs: socialMediaLinks
     .map((link) => link.link)

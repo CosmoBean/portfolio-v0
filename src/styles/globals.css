@@ -48,6 +48,40 @@
   }
 }
 
+@keyframes signal-sweep {
+  0% {
+    transform: translate3d(-8%, -12%, 0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.28;
+  }
+
+  50% {
+    transform: translate3d(20%, 20%, 0);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translate3d(46%, 44%, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-halo {
+  0%,
+  100% {
+    opacity: 0.16;
+    transform: scale(0.92);
+  }
+
+  50% {
+    opacity: 0.42;
+    transform: scale(1.08);
+  }
+}
+
 @theme inline {
   --color-obsidian: var(--bg-obsidian);
   --color-surface: var(--bg-surface);
@@ -272,6 +306,23 @@
   .ambient-mesh {
     animation: mesh-shift 20s ease-in-out infinite;
     will-change: transform;
+  }
+
+  .signal-grid {
+    background-image:
+      linear-gradient(to right, rgb(212 160 83 / 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(212 160 83 / 0.1) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  .signal-sweep {
+    animation: signal-sweep 10s ease-in-out infinite;
+    will-change: transform, opacity;
+  }
+
+  .pulse-halo {
+    animation: pulse-halo 3.2s ease-in-out infinite;
+    will-change: transform, opacity;
   }
 
   .motion-hint {

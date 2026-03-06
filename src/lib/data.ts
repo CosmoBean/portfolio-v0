@@ -4,7 +4,7 @@ export const settings = {
 
 export const seo = {
     title: "Sri Datta Bandreddi's Portfolio",
-    description: "AI Engineer Portfolio",
+    description: "AI engineer portfolio focused on production systems, applied ML, and AI4Healthcare.",
     og: {
         title: "Sri Datta Bandreddi's Portfolio",
         type: "website",

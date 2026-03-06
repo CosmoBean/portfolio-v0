@@ -193,7 +193,7 @@ export default function CinematicHomePage() {
         >
           <div>
             <p className="text-xs uppercase tracking-[0.22em] text-amber-200/70">Sri Datta Bandreddi</p>
-            <p className="mt-1 text-sm text-zinc-400">AI systems, architecture, and biomedical signal intelligence</p>
+            <p className="mt-1 text-sm text-zinc-400">AI systems, architecture, and AI4Healthcare interest</p>
           </div>
           <div className="flex w-full flex-wrap items-center gap-2 sm:w-auto sm:justify-end sm:gap-3">
             <Link
@@ -217,12 +217,12 @@ export default function CinematicHomePage() {
               {greeting.nickname} / portfolio v2
             </p>
             <h1 className="font-display text-4xl leading-[0.95] text-zinc-50 sm:text-6xl lg:text-7xl">
-              Engineering signal
+              AI systems
               <br />
-              from complex systems.
+              that hold up in production.
             </h1>
             <p className="mt-7 max-w-2xl text-base leading-7 text-zinc-300 sm:text-lg">
-              I build production-grade AI and backend systems with a bias toward clarity, performance, and long-term maintainability, while pushing deeper into biomedical intelligence.
+              I work at the seam between modeling and infrastructure, building backend and AI systems that are explicit, performant, and maintainable, with a growing focus on AI4Healthcare.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-2.5 sm:gap-3">
               <a
@@ -281,7 +281,7 @@ export default function CinematicHomePage() {
                   {[
                     "Production AI infrastructure that survives real traffic patterns",
                     "Research systems with measurable benchmark discipline",
-                    "Biomedical signal work with engineering-first execution",
+                    "AI4Healthcare work with engineering-first execution",
                   ].map((item, index) => (
                     <motion.div
                       key={item}
@@ -353,7 +353,7 @@ export default function CinematicHomePage() {
               Selected builds with measurable outcomes.
             </h2>
             <p className="mt-4 max-w-3xl text-sm leading-6 text-zinc-400 sm:text-base">
-              Three projects that best represent the mix: platform-scale performance work, biomedical modeling, and applied AI product execution.
+              Three projects that best represent the mix: platform-scale performance work, healthcare-facing ML, and applied AI product execution.
             </p>
           </div>
 
@@ -427,7 +427,7 @@ export default function CinematicHomePage() {
               My work sits at the intersection of production engineering and applied intelligence: building systems that are measurable, maintainable, and honest about failure modes. I care about shipping outcomes, not just prototypes.
             </p>
             <p className="mt-4 max-w-2xl text-sm leading-6 text-zinc-400">
-              Long-term, that discipline points toward biomedical intelligence, where reliability, signal quality, and implementation details matter as much as model performance.
+              Long-term, that discipline points toward AI4Healthcare, where reliability, traceability, and signal quality matter as much as model performance.
             </p>
           </div>
 
@@ -488,7 +488,7 @@ export default function CinematicHomePage() {
                   If you need someone who can move from research ambiguity to production reality, let&apos;s talk.
                 </h2>
                 <p className="mt-4 max-w-2xl text-sm leading-6 text-zinc-400">
-                  I&apos;m open to conversations around AI systems, platform engineering, applied ML, and biomedical intelligence work.
+                  I&apos;m open to conversations around AI systems, platform engineering, applied ML, and AI4Healthcare.
                 </p>
               </div>
               <div className="flex w-full flex-wrap gap-2.5 sm:w-auto sm:gap-3">

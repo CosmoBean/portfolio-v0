@@ -11,8 +11,8 @@ const workingStyles = [
     copy: "Performance, reliability, and delivery impact are the baseline language of the work.",
   },
   {
-    title: "Research with discipline",
-    copy: "Experiments matter only when evaluation, assumptions, and next steps are equally concrete.",
+    title: "AI4Healthcare trajectory",
+    copy: "I am especially interested in healthcare-facing AI where engineering rigor, trust, and implementation details shape real outcomes.",
   },
 ];
 
@@ -24,7 +24,7 @@ export default function IdentityStrip() {
           <SectionHeader
             eyebrow="Identity"
             title="I optimize for durable systems, not demo-day optics."
-            subtitle="My work sits at the intersection of production engineering and applied intelligence: building systems that are measurable, maintainable, and honest about failure modes. Long-term, that discipline points toward biomedical intelligence, where reliability, signal quality, and implementation details matter as much as model performance."
+            subtitle="My work sits at the intersection of production engineering and applied intelligence: building systems that are measurable, maintainable, and honest about failure modes. Long-term, that discipline points toward AI4Healthcare, where reliability, traceability, and signal quality matter as much as model performance."
           />
         </div>
 

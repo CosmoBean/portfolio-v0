@@ -29,7 +29,7 @@ export default function ContactCTA() {
                 If you need someone who can move from research ambiguity to production reality, let&apos;s talk.
               </h2>
               <p className="mt-4 max-w-2xl text-sm leading-7 text-text-secondary sm:text-base">
-                I&apos;m open to conversations around AI systems, platform engineering, applied ML, and biomedical intelligence work.
+                I&apos;m open to conversations around AI systems, platform engineering, applied ML, and AI4Healthcare.
               </p>
             </div>
 
