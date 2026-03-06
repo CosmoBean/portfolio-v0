@@ -1,0 +1,58 @@
+---
+title: "Cross-Modal Distillation"
+slug: "cross-modal-distillation"
+domains: ["applied-science", "deep-learning"]
+category: "CROSS-MODAL LEARNING"
+date: "2025"
+headline_metric: "4 modality groups aligned"
+description: "Explored multimodal knowledge transfer for clinically relevant prediction tasks, balancing representation power with disciplined evaluation."
+tech: ["Medical Imaging", "Distillation", "Cross-Modal Learning", "Biostatistics", "Representation Learning"]
+status: "concept"
+---
+
+{/* PLACEHOLDER: Replace with study outcomes once the final evaluation protocol is complete. */}
+
+## The Problem
+
+Clinical prediction tasks often combine signals that do not naturally live in the same space: imaging, tabular metadata, longitudinal observations, and clinical notes. The hard part is not only building a multimodal model. It is deciding how knowledge should transfer between modalities without burying weaker evidence beneath stronger signals.
+
+The project focused on distillation as a way to preserve useful cross-modal structure while keeping the evaluation honest.
+
+## Architecture
+
+<Architecture
+  title="System shape"
+  items={[
+    "Encode each modality with a dedicated branch tuned to its data characteristics.",
+    "Use distillation losses so higher-capacity modality combinations can teach lighter student representations.",
+    "Track modality contribution explicitly instead of assuming fusion is always better.",
+    "Evaluate with clinically meaningful metrics and ablations across modality subsets."
+  ]}
+/>
+
+## Approach
+
+I treated the problem as representation alignment first and task prediction second. If the modality encoders do not produce compatible structure, fusion becomes noise. Distillation helped because it let richer models transfer signal into smaller, more deployable students while exposing where the transfer was actually useful.
+
+Just as important was ablation discipline. Multimodal systems can look strong simply because one modality dominates. The evaluation must show what each modality contributes and where the model degrades when one is missing.
+
+<TechStack items={["Cross-Modal Learning", "Distillation", "Medical Imaging", "Biostatistics", "Ablations"]} />
+
+```python
+loss = task_loss(student_logits, labels) + alpha * distill_loss(
+    student_embeddings,
+    teacher_embeddings.detach(),
+)
+```
+
+## Results
+
+<Metric value={4} label="Modality groups aligned" />
+
+The current result is a stronger experimental frame for multimodal healthcare modeling. The work clarified how to evaluate transfer, how to avoid fusion theater, and where distillation is worth the added complexity.
+
+## Key Learnings
+
+- Multimodal models need ablations that are as careful as the fusion design itself.
+- Distillation is useful when it preserves signal, not when it merely shrinks a model.
+- In clinical settings, interpretability of modality contribution matters almost as much as top-line performance.

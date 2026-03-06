@@ -1,0 +1,54 @@
+---
+title: "GCN Oversmoothing"
+slug: "gcn-oversmoothing"
+domains: ["deep-learning"]
+category: "GRAPH LEARNING"
+date: "2025"
+headline_metric: "6-layer collapse threshold"
+description: "Studied where graph convolution depth starts collapsing node representations, and which mitigations preserve signal longer."
+tech: ["PyTorch Geometric", "GCN", "Graph Theory", "Spectral Analysis", "Evaluation"]
+status: "research"
+---
+
+## The Problem
+
+Graph neural networks promise relational reasoning, but deeper stacks often lose discrimination as node representations drift toward each other. That oversmoothing behavior is widely discussed and often poorly diagnosed. I wanted to study where it showed up, how to measure it, and which mitigations actually changed the outcome.
+
+The goal was not to produce a new architecture. It was to understand the failure mode precisely enough to make architectural decisions with evidence.
+
+## Architecture
+
+<Architecture
+  title="System shape"
+  items={[
+    "Train baseline GCN stacks at increasing depth and track representation similarity across layers.",
+    "Compare skip connections, residual paths, normalization, and dropout variants.",
+    "Measure both task performance and embedding collapse metrics instead of relying on one number.",
+    "Relate the behavior back to graph topology and degree distribution."
+  ]}
+/>
+
+## Approach
+
+I paired classification metrics with internal representation metrics. Task accuracy can remain stable for a while even when the embedding space is already collapsing, so I tracked pairwise similarity and class separability layer by layer. That made the degradation visible before it became obvious at the output.
+
+Residual paths and normalization helped, but only up to a point. The deeper lesson was that depth should be justified by the graph signal itself, not imported from image-model habits.
+
+<TechStack items={["PyTorch Geometric", "GCN", "Residual Paths", "Embedding Analysis", "Evaluation"]} />
+
+```python
+similarity = cosine_similarity(hidden[layer_a], hidden[layer_b]).mean()
+collapse_score = torch.var(hidden[layer_index], dim=0).mean()
+```
+
+## Results
+
+<Metric value={6} label="Observed collapse threshold" />
+
+The experiments showed a fairly consistent depth zone where oversmoothing started to dominate on the selected graphs. More importantly, the project produced a workflow for diagnosing the problem instead of guessing at it.
+
+## Key Learnings
+
+- Internal representation metrics often reveal failure earlier than top-line accuracy.
+- Deeper graph models need graph-specific justification, not generic depth bias.
+- Residual structure helps, but it does not excuse poor evaluation discipline.

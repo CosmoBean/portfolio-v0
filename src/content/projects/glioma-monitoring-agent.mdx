@@ -1,0 +1,59 @@
+---
+title: "Glioma Monitoring Agent"
+slug: "glioma-monitoring-agent"
+domains: ["agentic-ai", "applied-science"]
+category: "CLINICAL AGENT"
+date: "2025"
+headline_metric: "3-model risk review pipeline"
+description: "Designed a clinical decision-support agent that combines structured risk signals with explanation layers for longitudinal monitoring."
+tech: ["XGBoost", "SHAP", "LLM", "Clinical AI", "Structured Output"]
+status: "concept"
+---
+
+{/* PLACEHOLDER: Replace with study-specific evaluation metrics after validation. */}
+
+## The Problem
+
+Clinical monitoring systems cannot hide behind vague intelligence claims. If a model surfaces progression risk, it has to explain what evidence drove that result, what data is missing, and what the clinician should treat as tentative. The wrong abstraction here is a chatbot; the right abstraction is a disciplined review workflow.
+
+The project goal was to design an agent that coordinates prediction, explanation, and summary rather than replacing expert judgment.
+
+## Architecture
+
+<Architecture
+  title="System shape"
+  items={[
+    "Collect longitudinal signals, imaging-derived summaries, and structured patient attributes.",
+    "Run a tabular risk model to estimate progression likelihood and expose feature-level contributions via SHAP.",
+    "Use an LLM only after the structured step, with strict prompts that summarize evidence instead of inventing recommendations.",
+    "Emit auditable output with confidence markers, missing-data flags, and explicit next-review suggestions."
+  ]}
+/>
+
+## Approach
+
+The design prioritizes traceability. Risk estimation stays in a structured model where feature contributions can be inspected. The language model is used to translate structured evidence into a clinician-friendly summary, not to generate the underlying judgment.
+
+That separation is important because it keeps the system honest. If the risk model is weak, the LLM should not make it sound stronger than it is. The agent has to surface uncertainty and missing data as visible parts of the interface.
+
+<TechStack items={["XGBoost", "SHAP", "Structured Output", "Clinical Review", "Prompt Constraints"]} />
+
+```json
+{
+  "risk_score": 0.71,
+  "top_factors": ["tumor_volume_change", "edema_pattern", "time_since_last_scan"],
+  "missing_data": ["molecular_marker_update"]
+}
+```
+
+## Results
+
+<Metric value={3} label="Integrated review stages" />
+
+The strongest outcome of the design is not a single score. It is a workflow that keeps prediction, explanation, and summary distinct enough to audit. That is the minimum standard for clinical-facing agent systems.
+
+## Key Learnings
+
+- In healthcare contexts, structured explanation should lead and language generation should follow.
+- The best agent design often looks less autonomous and more accountable.
+- Honest uncertainty reporting is a core feature, not a nice-to-have.

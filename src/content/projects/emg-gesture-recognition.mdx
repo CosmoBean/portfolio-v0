@@ -1,0 +1,60 @@
+---
+title: "EMG Gesture Recognition"
+slug: "emg-gesture-recognition"
+domains: ["deep-learning", "applied-science"]
+category: "BIOMEDICAL ML"
+date: "2024 - 2025"
+headline_metric: "85-92% gesture accuracy"
+description: "Built sequence and convolutional models for hand-gesture recognition from EMG signals, with attention-based experiments for robustness."
+tech: ["PyTorch", "EMG Processing", "CNN/LSTM", "Attention", "Signal Windowing"]
+status: "research"
+---
+
+## The Problem
+
+EMG classification is deceptively noisy. Two windows of the same gesture can look different because of placement, muscle fatigue, and movement variability, while two different gestures can overlap when the signal quality drops. The challenge is not only to fit a model, but to build a preprocessing and evaluation pipeline that respects the physics of the signal.
+
+That meant the project could not stop at trying a single architecture. Data segmentation, feature stability, and subject-level validation mattered as much as the network itself.
+
+<Callout tone="warning">
+Signal-processing work punishes shortcuts. Leakage between train and test windows can create confidence that disappears the moment a new subject enters the loop.
+</Callout>
+
+## Architecture
+
+<Architecture
+  title="System shape"
+  items={[
+    "Segment raw EMG streams into fixed windows with overlap tuned for gesture transitions.",
+    "Normalize and denoise inputs before feature extraction to reduce electrode-placement sensitivity.",
+    "Train CNN and LSTM variants, then compare against an attention-augmented hybrid model.",
+    "Evaluate with subject-aware splits and confusion-matrix analysis instead of headline accuracy alone."
+  ]}
+/>
+
+## Approach
+
+I treated the project as two problems: getting stable windows and learning temporal structure inside those windows. Convolutional models were useful for local signal patterns, while recurrent layers captured longer temporal dependencies. The attention mechanism was introduced to emphasize the most informative parts of each sequence instead of treating all timesteps equally.
+
+I also spent time on failure analysis. Misclassifications were not random; they clustered around gesture pairs with similar muscular activation and around windows near gesture boundaries. That made the evaluation more actionable and gave the modeling work a clear direction.
+
+<TechStack items={["PyTorch", "EMG Processing", "CNN", "LSTM", "Attention"]} />
+
+```python
+window = signal[start:start + 256]
+window = bandpass_filter(window, low=20, high=450)
+window = normalize(window)
+prediction = model(window.unsqueeze(0))
+```
+
+## Results
+
+<Metric value={92} suffix="%" label="Peak validation accuracy" />
+
+The strongest models landed in the 85-92% range depending on the gesture subset and validation split. More importantly, the project clarified which parts of the pipeline were carrying the result: stable preprocessing, subject-aware evaluation, and architectures that respect both local and temporal structure.
+
+## Key Learnings
+
+- Better preprocessing often beats gratuitous model complexity on biosignal tasks.
+- Subject-aware validation is the difference between a research result and self-deception.
+- Attention is useful when it highlights meaningful temporal regions, not just because it sounds modern.

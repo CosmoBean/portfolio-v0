@@ -1,0 +1,57 @@
+---
+title: "MLFlow Pipeline"
+slug: "mlflow-pipeline"
+domains: ["mlops"]
+category: "ML PLATFORM"
+date: "2025"
+headline_metric: "1-click experiment replay"
+description: "Set up a reproducible experiment-tracking workflow that separates model iteration from environment chaos and inconsistent logging."
+tech: ["MLFlow", "Docker", "CI/CD", "Monitoring", "Artifact Storage"]
+status: "concept"
+---
+
+{/* PLACEHOLDER: Replace with run-volume and reliability metrics once the stack is active. */}
+
+## The Problem
+
+Model experimentation becomes noisy fast when runs are logged inconsistently, environment state is not preserved, and artifact versioning depends on team memory. The project goal was to build a path from local experimentation to reproducible team workflows without turning every run into ceremony.
+
+The system had to be light enough for iteration and strict enough for auditability.
+
+## Architecture
+
+<Architecture
+  title="System shape"
+  items={[
+    "Package training jobs in containers so environment drift is minimized across runs.",
+    "Log metrics, parameters, and artifacts to MLFlow with a stable run schema.",
+    "Attach CI checks that validate experiment metadata before expensive jobs launch.",
+    "Store model outputs and reports in artifact storage with traceable run IDs."
+  ]}
+/>
+
+## Approach
+
+The design puts reproducibility on the default path. If a training run is worth keeping, it should already have enough metadata to replay. That means run naming, parameter logging, and artifact storage all need conventions, not just tools.
+
+I also treated experiment review as a product problem. The dashboard should help a team answer simple questions quickly: what changed, what improved, and which artifact should be trusted.
+
+<TechStack items={["MLFlow", "Docker", "Artifact Storage", "CI/CD", "Run Metadata"]} />
+
+```bash
+mlflow run . \
+  -P config=training/base.yaml \
+  -P tracking_uri=$MLFLOW_TRACKING_URI
+```
+
+## Results
+
+<Metric value={1} label="Click to replay a run" />
+
+The result is a workflow that makes good habits cheaper. Reproducibility stops being extra work when the logging schema and artifact path are already part of every run.
+
+## Key Learnings
+
+- Tooling only improves research quality when it enforces conventions people can actually follow.
+- Reproducibility is mostly a metadata problem wearing an infrastructure costume.
+- Review UX matters for ML systems just as much as training speed.

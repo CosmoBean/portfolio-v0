@@ -1,0 +1,64 @@
+---
+title: "BYJU'S Cloud Optimization"
+slug: "byjus-cloud-optimization"
+domains: ["systems", "mlops"]
+category: "CLOUD PLATFORM"
+date: "Jul 2022 - Dec 2023"
+headline_metric: "70% AWS ECS cost reduction"
+description: "Reduced AWS ECS spend while maintaining service reliability for a CRM and communications platform under active product delivery pressure."
+tech: ["AWS ECS", "Spring Boot", "React", "Scheduled Scaling", "Monitoring"]
+status: "shipped"
+---
+
+## The Problem
+
+The platform was paying for peak capacity most of the time. ECS services were sized defensively, which kept reliability acceptable but introduced a lot of waste during predictable low-traffic windows. Product work was still moving quickly, so any optimization that increased operational fragility would have been a bad trade.
+
+At the same time, the engineering team was delivering CRM features and authentication surfaces. That meant the infrastructure work had to be low-drama. Cost reduction was important, but not more important than protecting the delivery cadence.
+
+<Callout tone="insight">
+The useful question was not "how do we shrink infra?" but "what load shape do we actually need to fund at each hour of the week?"
+</Callout>
+
+## Architecture
+
+<Architecture
+  title="System shape"
+  items={[
+    "Profile hourly traffic patterns to identify stable low-demand windows.",
+    "Apply scheduled ECS scaling policies where traffic shape was predictable and fallback alarms where it was not.",
+    "Add lightweight dashboards and deployment checks so cost changes stayed observable during active product work.",
+    "Pair application-level delivery with infra tuning to keep product rollout and platform ownership aligned."
+  ]}
+/>
+
+## Approach
+
+I started by separating bursty traffic from truly stable demand. Scheduled scaling only works when the underlying traffic is boring enough, so the first task was identifying which services actually fit that model. Services with clean daily patterns moved to scheduled capacity plans; more volatile ones kept safer defaults and monitoring-driven intervention.
+
+In parallel, I kept the product side moving. CRM APIs, internal auth work, and multi-channel communication flows were still shipping. The advantage of doing both together was that infrastructure assumptions could be corrected while the services were still evolving.
+
+<TechStack items={["AWS ECS", "Spring Boot", "React", "Scheduled Scaling", "Dashboards"]} />
+
+```yaml
+service:
+  desiredCount:
+    daytime: 12
+    evening: 7
+    overnight: 4
+  safeguards:
+    - cpu_alarm
+    - request_latency_alarm
+```
+
+## Results
+
+<Metric value={70} suffix="%" label="Infrastructure cost reduction" />
+
+The service footprint dropped significantly without introducing a reliability story the team could not defend. The broader win was operational confidence: infrastructure changes were no longer treated as special-case heroics, just another part of disciplined product delivery.
+
+## Key Learnings
+
+- Cost work is credible only when rollback and observability are built in from the start.
+- Predictable traffic deserves scheduled scaling; unpredictable traffic deserves different tools.
+- Platform ownership gets stronger when infra and application delivery are treated as one system.

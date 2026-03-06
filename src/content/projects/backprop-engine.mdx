@@ -1,0 +1,56 @@
+---
+title: "Backprop Engine"
+slug: "backprop-engine"
+domains: ["deep-learning"]
+category: "FOUNDATIONS"
+date: "2025"
+headline_metric: "100% gradient traceability"
+description: "Implemented backpropagation from scratch to make gradient flow, loss shaping, and optimization behavior fully inspectable."
+tech: ["Python", "NumPy", "Optimization", "Autodiff", "Linear Algebra"]
+status: "research"
+---
+
+## The Problem
+
+It is easy to use deep learning frameworks for years and still keep the actual optimization mechanics at arm's length. That becomes a limit when debugging custom losses, unstable gradients, or architecture behavior that does not match intuition.
+
+This project was about removing abstraction until every forward value and backward derivative was visible.
+
+## Architecture
+
+<Architecture
+  title="System shape"
+  items={[
+    "Represent computation as a graph of scalar and tensor operations with explicit parent tracking.",
+    "Store local derivatives during the forward pass so backward traversal can reuse them.",
+    "Implement gradient accumulation and parameter updates without hidden framework behavior.",
+    "Verify gradients numerically against finite differences to catch implementation mistakes."
+  ]}
+/>
+
+## Approach
+
+I started from scalar autodiff to make the dependency graph obvious, then scaled to tensor operations where broadcasting and reduction rules become more subtle. The interesting part was not matrix multiplication itself. It was the chain rule across realistic compositions: activations, losses, and batch operations.
+
+Numerical gradient checks were the guardrail. When a derived gradient disagreed with finite differences, the mismatch forced a more precise understanding of the graph rather than more code.
+
+<TechStack items={["Python", "NumPy", "Autodiff", "Gradient Checking", "Optimization"]} />
+
+```python
+for node in reversed(topological_order):
+    node.backward()
+    for parent, grad_fn in node.parents:
+        parent.grad += grad_fn(node.grad)
+```
+
+## Results
+
+<Metric value={100} suffix="%" label="Gradient traceability" />
+
+The main output is conceptual leverage. Once the mechanics are explicit, debugging optimization behavior becomes far less mystical. That payoff transfers directly to larger model work.
+
+## Key Learnings
+
+- Writing the backward pass by hand forces precision that high-level APIs often hide.
+- Numerical checks are one of the fastest ways to build confidence in math-heavy code.
+- Framework abstractions are powerful only after the underlying mechanics are trusted.

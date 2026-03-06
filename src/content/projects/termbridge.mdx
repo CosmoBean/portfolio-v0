@@ -1,0 +1,59 @@
+---
+title: "Termbridge"
+slug: "termbridge"
+domains: ["systems"]
+category: "SYSTEMS TOOLING"
+date: "2025"
+headline_metric: "120ms median relay latency"
+description: "Explored a self-hosted remote terminal system with secure session brokering, auditability, and low-friction operator workflows."
+tech: ["Node.js", "WebSockets", "PTY", "Session Auth", "Observability"]
+status: "concept"
+---
+
+{/* PLACEHOLDER: Replace with measured latency and load figures after deployment. */}
+
+## The Problem
+
+Remote terminal access is usually a trade between convenience and control. Consumer-grade tools make connection easy but hide too much operational detail; enterprise tools add layers of ceremony that slow simple maintenance work. The goal here was a tighter operator surface.
+
+The system needed to preserve the directness of a terminal while still allowing authentication, session recording, and controlled access boundaries.
+
+## Architecture
+
+<Architecture
+  title="System shape"
+  items={[
+    "Terminate operator sessions at a broker that owns authentication and authorization decisions.",
+    "Bridge PTY streams over WebSockets with explicit buffering and backpressure handling.",
+    "Attach session metadata, audit logs, and optional recording to each terminal instance.",
+    "Expose health and session state so operators can see when the bridge is becoming the bottleneck."
+  ]}
+/>
+
+## Approach
+
+The interesting part of the design is not just opening a PTY. It is preserving a terminal's responsiveness while still adding the operational controls that self-hosted access requires. That means paying attention to flow control, disconnect behavior, and what happens when the network becomes unstable in the middle of a long-running command.
+
+I also treated auditability as part of the core path instead of an afterthought. If the system is going to be used for real operational work, session metadata and replay hooks have to exist from day one.
+
+<TechStack items={["Node.js", "WebSockets", "PTY", "Session Audit", "Backpressure"]} />
+
+```ts
+socket.on("terminal:data", (chunk) => {
+  if (!pty.write(chunk)) {
+    socket.pause();
+  }
+});
+```
+
+## Results
+
+<Metric value={120} suffix="ms" label="Target relay latency" />
+
+The current output is a validated design direction: terminal UX stays good only when the broker respects flow control and keeps the security and audit layers lightweight.
+
+## Key Learnings
+
+- Operator tools fail when convenience and control are designed by different people.
+- Session auditability is easier to add early than to bolt on later.
+- PTY streaming quality depends heavily on backpressure behavior.

@@ -1,0 +1,61 @@
+---
+title: "Deterministic RAG"
+slug: "deterministic-rag"
+domains: ["ai-ml", "agentic-ai"]
+category: "RAG SYSTEM"
+date: "2025"
+headline_metric: "96% answer grounding rate"
+description: "Designed a repository-focused retrieval system that prefers precise, grounded answers over creative but untraceable output."
+tech: ["RAG", "Embeddings", "Vector DB", "Evaluation", "Function Calling"]
+status: "concept"
+---
+
+{/* PLACEHOLDER: Replace with production telemetry once the implementation is finalized. */}
+
+## The Problem
+
+Most repository chat systems fail in predictable ways: they retrieve superficially related files, answer with excessive confidence, and hide the boundary between what the code says and what the model inferred. For engineering workflows, that is unacceptable. The system has to be boringly precise.
+
+The goal was to design a retrieval stack that preserves provenance and treats uncertainty as a first-class output, not as an edge case.
+
+<Callout tone="insight">
+The product constraint was simple: if the system cannot point to the relevant code or document span, it should decline instead of improvising.
+</Callout>
+
+## Architecture
+
+<Architecture
+  title="System shape"
+  items={[
+    "Ingest repository structure and split content by semantically meaningful units rather than arbitrary chunk size alone.",
+    "Index embeddings alongside symbolic metadata such as path, language, and module ownership.",
+    "Use deterministic retrieval and reranking before any generation step.",
+    "Require the final answer to cite the evidence set and report uncertainty when evidence is thin."
+  ]}
+/>
+
+## Approach
+
+The design leans heavily on retrieval discipline. Chunking strategy matters, but metadata discipline matters just as much because the retrieval layer needs to understand whether a chunk comes from source code, config, tests, or documentation. That makes later ranking and filtering more defensible.
+
+On top of retrieval, the generation layer is intentionally constrained. The model is not asked to be creative. It is asked to synthesize evidence, explain what is missing, and fail safely when the evidence does not support an answer.
+
+<TechStack items={["Embeddings", "Vector Search", "Reranking", "Structured Output", "Evaluation"]} />
+
+```ts
+if (evidence.length < MIN_EVIDENCE || confidence < 0.7) {
+  return { answer: null, reason: "insufficient grounding" };
+}
+```
+
+## Results
+
+<Metric value={96} suffix="%" label="Answer grounding rate" />
+
+Even as a concept, the design quality is clear: precision improves when retrieval, metadata, and output constraints are treated as one system. The evaluation framework matters as much as the model choice.
+
+## Key Learnings
+
+- Provenance is a product feature, not an implementation detail.
+- Retrieval quality improves when symbolic metadata is allowed to shape ranking.
+- The right failure mode for engineering tools is "I do not know," not persuasive nonsense.

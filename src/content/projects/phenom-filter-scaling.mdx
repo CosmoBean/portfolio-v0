@@ -1,0 +1,61 @@
+---
+title: "AI Filter Platform Scaling at Phenom"
+slug: "phenom-filter-scaling"
+domains: ["systems", "ai-ml"]
+category: "PRODUCTION SYSTEMS"
+date: "Dec 2023 - Jul 2025"
+headline_metric: "40% faster query response"
+description: "Scaled a high-throughput AI-driven filter layer by improving PostgreSQL sharding behavior and system-level query performance under multi-tenant production load."
+tech: ["PostgreSQL", "Sharding", "Python", "Performance Tuning", "Observability"]
+status: "shipped"
+---
+
+## The Problem
+
+The filter service looked healthy on average and still felt slow to users. The real issue was tail latency: a small number of high-cardinality filters caused expensive fan-out across tenant partitions, and those slow requests were the ones users remembered. Query plans were inconsistent, cache behavior was noisy, and product teams were adding more combinations faster than the database layout could absorb.
+
+The system also had to preserve ranking semantics for AI-driven filters. That ruled out shortcuts like aggressive denormalization without clear validation. Any improvement had to keep correctness stable while reducing both average latency and p95 spikes.
+
+<Callout tone="insight">
+The turning point was treating this as a workload-shaping problem, not just a query-tuning problem. The data access pattern had to change with the storage layout.
+</Callout>
+
+## Architecture
+
+<Architecture
+  title="System shape"
+  items={[
+    "Benchmark representative filter combinations and capture p95-heavy workloads instead of relying on broad averages.",
+    "Introduce sharding boundaries aligned to tenant and query-access patterns, then validate shard-key hot spots.",
+    "Add targeted observability around plan drift, lock contention, and expensive joins before rollout.",
+    "Roll out incrementally with backfills and replay-based verification to avoid semantic regressions."
+  ]}
+/>
+
+## Approach
+
+I first built a repeatable benchmark harness so query-path changes could be tested against realistic filter combinations rather than synthetic happy paths. That made it easier to isolate the workload classes that were driving latency and to compare alternative shard-key candidates without relying on intuition.
+
+Once the access pattern was visible, I narrowed the largest cost centers: cross-tenant scans, expensive filter intersections, and planner instability when data skew changed. The fix was not one clever query. It was a stack of changes: more stable partition boundaries, better supporting indexes for the high-value access paths, and a tighter feedback loop between product queries and database shape.
+
+<TechStack items={["PostgreSQL", "Sharding", "Benchmarking", "Python", "Observability"]} />
+
+```sql
+select tenant_id, count(*) as slow_queries
+from query_latency_events
+where duration_ms > 250
+group by tenant_id
+order by slow_queries desc;
+```
+
+## Results
+
+<Metric value={40} suffix="%" label="Faster query response" />
+
+The rollout produced a measurable latency improvement for AI-driven filters and removed several of the p95 spikes that had been driving user-visible slowness. It also left the team with a better evaluation habit: storage and query changes were now benchmarked together instead of being treated as isolated fixes.
+
+## Key Learnings
+
+- Database scaling work becomes safer when benchmarking, rollout, and observability are designed together.
+- Tail latency usually hides in specific workload classes; averages are useful for dashboards, not for diagnosis.
+- Sharding decisions should be evaluated against future query shapes, not only current bottlenecks.

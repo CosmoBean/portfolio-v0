@@ -1,0 +1,55 @@
+---
+title: "Phenom NLP Classification"
+slug: "phenom-nlp-classification"
+domains: ["ai-ml"]
+category: "PRODUCTION NLP"
+date: "May 2021 - Jun 2022"
+headline_metric: "3 production data sources"
+description: "Built validation and classification services around user-action signals, focusing on stable NLP integration with product APIs."
+tech: ["NLP", "Classification", "Python", "APIs", "Validation Services"]
+status: "shipped"
+---
+
+## The Problem
+
+The recommendation workflow needed a better understanding of user intent, but raw behavioral signals were messy and spread across multiple sources. The challenge was to turn those signals into stable classification outputs without creating an offline-only solution that never survived integration.
+
+That pushed the work toward practical NLP: careful feature shaping, operational validation, and service boundaries that product teams could actually consume.
+
+## Architecture
+
+<Architecture
+  title="System shape"
+  items={[
+    "Normalize inputs from three data sources into a shared classification-friendly representation.",
+    "Train and validate persona-style NLP models against measurable downstream usefulness.",
+    "Package the validation layer as a service so product teams could rely on stable interfaces.",
+    "Support database and API integration patterns required for production deployment."
+  ]}
+/>
+
+## Approach
+
+The most important part of the work was reducing integration friction. A model can look promising in isolation and still fail if its interface, error behavior, or data assumptions are too fragile. I treated validation as part of the product surface, not a separate research exercise.
+
+That led to building reusable database clients and service interfaces alongside the classification work. The outcome was a cleaner path from experimentation to deployment.
+
+<TechStack items={["NLP", "Python", "Validation APIs", "Database Clients", "Recommendation Systems"]} />
+
+```python
+persona = classifier.predict(features)
+validation = validator.check(persona=persona, source=event.source)
+return {"persona": persona, "validation": validation}
+```
+
+## Results
+
+<Metric value={3} label="Integrated data sources" />
+
+The project improved the usefulness of recommendation flows and clarified how validation should sit between model output and product usage. That made the system more deployable, not just more accurate.
+
+## Key Learnings
+
+- Production NLP quality depends as much on interfaces and validation as on model architecture.
+- Multi-source data pipelines need normalization discipline before modeling pays off.
+- Reusable integration clients create leverage far beyond a single model.

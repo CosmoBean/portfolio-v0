@@ -1,0 +1,57 @@
+---
+title: "YouTube Digest"
+slug: "youtube-digest"
+domains: ["ai-ml"]
+category: "APPLIED AI PRODUCT"
+date: "2024"
+headline_metric: "70% watch-time saved"
+description: "Built an asynchronous workflow that turns long-form video into useful summaries, focused on latency, output quality, and user trust."
+tech: ["FastAPI", "Gemini API", "Async Jobs", "Prompt Design", "Queues"]
+status: "research"
+---
+
+## The Problem
+
+Long videos are rich but expensive. The core product question was how to compress hours of material into something a user would actually trust. A short summary that misses structure or nuance is fast but not useful; a perfect summary that arrives too late loses the product.
+
+That pushed the implementation toward asynchronous orchestration. The summary pipeline had to absorb transcription, chunking, model inference, and synthesis without forcing the user into a blocking workflow.
+
+## Architecture
+
+<Architecture
+  title="System shape"
+  items={[
+    "Extract transcript or caption text and normalize noisy segments before summarization.",
+    "Chunk the content into model-friendly segments with overlap for continuity.",
+    "Run asynchronous summarization passes, then merge them into a coherent digest.",
+    "Expose job state through the API so the user can poll or revisit completed work."
+  ]}
+/>
+
+## Approach
+
+The system deliberately separated summarization quality from request latency. Instead of trying to finish everything in one request, it queued work and returned a job handle immediately. That made the interface predictable and gave the backend room to handle retries, rate limits, and chunk-level failures.
+
+Prompt design also mattered. A summary that only compresses text misses the structure of the video, so I pushed the prompt toward sections, key takeaways, and action-oriented bullets rather than generic prose. That made the digest more reusable.
+
+<TechStack items={["FastAPI", "Async Jobs", "Prompt Design", "Transcript Parsing", "Queue Workers"]} />
+
+```json
+{
+  "job_id": "digest_42c7",
+  "status": "processing",
+  "next_step": "merge_chunk_summaries"
+}
+```
+
+## Results
+
+<Metric value={70} suffix="%" label="Watch time reduced" />
+
+The project showed that the user experience benefit came from orchestration as much as model quality. Fast acknowledgement, clear job state, and structured outputs did as much work as the summary prompt itself.
+
+## Key Learnings
+
+- Async product flows are often better UX than pretending a slow workflow is synchronous.
+- Structured summary outputs are easier to trust and reuse than single-paragraph prose.
+- Model quality and orchestration quality should be evaluated separately.
