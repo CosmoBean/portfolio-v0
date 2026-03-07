@@ -1,4 +1,4 @@
-import { contactPageData, experience, greeting, skills, socialMediaLinks } from "@/lib/data";
+import { contactPageData, experience, greeting, resumeLinks, socialMediaLinks } from "@/lib/data";
 
 export type ModuleId = "core-logic" | "neural-pathways" | "biomedical-signal";
 
@@ -163,7 +163,7 @@ export const projectSpecs: ProjectSpec[] = [
     stack: ["Java", "Spring Boot", "AWS ECS", "React", "Auth/RBAC"],
     artifactLinks: [
       { label: "Company", href: "https://byjus.com/" },
-      { label: "Resume", href: greeting.resumeLink },
+      { label: "Resume", href: resumeLinks.route },
     ],
     notes: [
       "Balanced product delivery speed with reliability and cost control.",
@@ -256,7 +256,7 @@ export const projectSpecs: ProjectSpec[] = [
     stack: ["PyTorch", "Python", "LSTM", "CNN", "Attention"],
     artifactLinks: [
       { label: "GitHub", href: githubLink },
-      { label: "Resume", href: greeting.resumeLink },
+      { label: "Resume", href: resumeLinks.route },
     ],
     notes: [
       "A bridge project between biomedical signal understanding and production-grade ML engineering goals.",
@@ -375,24 +375,6 @@ export const experimentLogs: ExperimentLog[] = [
   },
 ];
 
-export const dashboardDiagnostics = {
-  version: "v2.6.0",
-  status: "ONLINE",
-  role: greeting.subTitle,
-  operator: greeting.title,
-  location: "Pittsburgh, PA, USA",
-  stackSummary: skills.data
-    .flatMap((section) => section.softwareSkills.map((s) => s.skillName))
-    .filter((value, index, array) => array.indexOf(value) === index)
-    .slice(0, 10),
-  quickMetrics: [
-    { label: "Active Modules", value: `${moduleDefinitions.length}` },
-    { label: "Specs Indexed", value: `${projectSpecs.length}` },
-    { label: "Experiment Logs", value: `${experimentLogs.length}` },
-    { label: "Current Track", value: "Healthcare + AI" },
-  ],
-};
-
 export const bootLogLines = [
   "Initializing DattaOS runtime...",
   "Loading modules: CoreLogic, NeuralPathways, BiomedicalSignal",
@@ -462,5 +444,5 @@ export const contactLinks = [
   { label: "Email", href: emailLink },
   { label: "GitHub", href: githubLink },
   { label: "LinkedIn", href: linkedInLink },
-  { label: "Resume", href: greeting.resumeLink },
+  { label: "Resume", href: resumeLinks.route },
 ];

@@ -2,6 +2,15 @@ export const settings = {
     isSplash: false,
 };
 
+const resumeDriveFileId = "1NiZzGqSiUIyH-qJfMaAL2Qa4xoFhybi5";
+
+export const resumeLinks = {
+    route: "/resume",
+    view: `https://drive.google.com/file/d/${resumeDriveFileId}/view?usp=sharing`,
+    preview: `https://drive.google.com/file/d/${resumeDriveFileId}/preview`,
+    download: `https://drive.google.com/uc?export=download&id=${resumeDriveFileId}`,
+};
+
 export const seo = {
     title: "Sri Datta Bandreddi's Portfolio",
     description: "AI engineer portfolio focused on production systems, applied ML, and AI4Healthcare.",
@@ -17,7 +26,7 @@ export const greeting = {
     logo_name: "Cosmobean",
     nickname: "cosmobean",
     subTitle: "AI Engineer & Full Stack Developer",
-    resumeLink: "https://drive.google.com/file/d/1NiZzGqSiUIyH-qJfMaAL2Qa4xoFhybi5/view?usp=sharing", // Add resume link
+    resumeLink: resumeLinks.view,
     portfolio_repository: "https://github.com/cosmobean/portfolio-v0",
     githubProfile: "https://github.com/cosmobean",
 };

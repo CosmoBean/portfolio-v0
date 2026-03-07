@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink } from "lucide-react";
-import { dashboardDiagnostics, globalActions } from "@/lib/command-os-data";
+import { globalActions } from "@/lib/command-os-data";
 
 interface CommandPageShellProps {
   eyebrow: string;
@@ -20,7 +20,7 @@ export default function CommandPageShell({ eyebrow, title, description, children
       <div className="absolute inset-0 command-vignette" aria-hidden />
       <div className="relative mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
         <header className="mb-4 rounded-2xl border border-borderSoft bg-surface/70 p-4 backdrop-blur-xl">
-          <div className="flex flex-wrap items-start justify-between gap-4">
+          <div>
             <div>
               <Link href="/" className="inline-flex items-center gap-2 text-sm text-textMuted hover:text-textPrimary">
                 <ArrowLeft size={14} /> Dashboard
@@ -28,11 +28,6 @@ export default function CommandPageShell({ eyebrow, title, description, children
               <p className="mt-3 font-mono text-[10px] tracking-[0.24em] text-[color:var(--color-gold)]">{eyebrow}</p>
               <h1 className="mt-2 text-2xl font-semibold font-display md:text-3xl">{title}</h1>
               <p className="mt-2 max-w-3xl text-sm text-textMuted md:text-base">{description}</p>
-            </div>
-
-            <div className="rounded-xl border border-borderSoft bg-background/60 px-3 py-2 font-mono text-xs text-textMuted">
-              <p>DATTA_OS {dashboardDiagnostics.version}</p>
-              <p className="text-accent">STATUS // {dashboardDiagnostics.status}</p>
             </div>
           </div>
 

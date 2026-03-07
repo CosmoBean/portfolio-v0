@@ -8,8 +8,6 @@ const iconMap = {
 } as const;
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
     <footer className="relative mt-16 border-t border-border-subtle/80 bg-gradient-to-b from-transparent to-card/65">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent-amber/30 to-transparent" />
@@ -42,7 +40,7 @@ export default function Footer() {
             })}
           </div>
           <p className="text-sm text-text-secondary">
-            © {currentYear} {greeting.title}. Built with Next.js, Framer Motion, Tailwind, and MDX.
+            Built with love and vibe coding.
           </p>
         </div>
       </div>

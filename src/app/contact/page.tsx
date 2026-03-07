@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import CommandPageShell from "@/components/command-os/CommandPageShell";
 import { contactLinks } from "@/lib/command-os-data";
-import { contactPageData, greeting } from "@/lib/data";
+import { contactPageData, greeting, socialMediaLinks } from "@/lib/data";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata({
@@ -12,6 +12,10 @@ export const metadata: Metadata = buildMetadata({
 });
 
 export default function ContactPage() {
+  const emailLink =
+    socialMediaLinks.find((link) => link.name === "Gmail")?.link ?? "mailto:sbandred@andrew.cmu.edu";
+  const emailAddress = emailLink.replace("mailto:", "");
+
   return (
     <CommandPageShell
       eyebrow="CONVERSION // CONTACT"
@@ -19,6 +23,20 @@ export default function ContactPage() {
       description={contactPageData.contactSection.description}
       actions={contactLinks.map((link) => ({ label: link.label, href: link.href }))}
     >
+      <section className="mb-4 rounded-2xl border border-borderSoft bg-surface/70 p-4 backdrop-blur-xl">
+        <p className="font-mono text-[10px] tracking-[0.2em] text-[color:var(--color-gold)]">DIRECT EMAIL</p>
+        <a
+          href={emailLink}
+          className="mt-4 block rounded-[1.5rem] border border-borderSoft bg-background/50 px-5 py-4 transition hover:border-[color:var(--color-goldSoft)] hover:bg-background/65"
+        >
+          <p className="font-mono text-[10px] tracking-[0.2em] text-textMuted">BEST REPLY PATH</p>
+          <p className="mt-3 break-all text-xl text-textPrimary">{emailAddress}</p>
+          <p className="mt-2 text-sm leading-6 text-textMuted">
+            Best for project discussions, hiring conversations, and direct outreach.
+          </p>
+        </a>
+      </section>
+
       <section className="grid gap-4 md:grid-cols-[1.2fr_0.8fr]">
         <article className="rounded-2xl border border-borderSoft bg-surface/70 p-4 backdrop-blur-xl">
           <p className="font-mono text-[10px] tracking-[0.2em] text-[color:var(--color-gold)]">COMMUNICATION CHANNELS</p>

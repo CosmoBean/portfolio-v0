@@ -14,6 +14,7 @@ export default function ContactCTA() {
   const reduceMotion = useReducedMotion();
   const emailLink =
     socialMediaLinks.find((link) => link.name === "Gmail")?.link ?? "mailto:sbandred@andrew.cmu.edu";
+  const emailAddress = emailLink.replace("mailto:", "");
   const linkedInLink =
     socialMediaLinks.find((link) => link.name === "LinkedIn")?.link ?? "https://linkedin.com";
 
@@ -31,6 +32,16 @@ export default function ContactCTA() {
               <p className="mt-4 max-w-2xl text-sm leading-7 text-text-secondary sm:text-base">
                 I&apos;m open to conversations around AI systems, platform engineering, applied ML, and AI4Healthcare.
               </p>
+              <a
+                href={emailLink}
+                className="mt-6 block max-w-2xl rounded-[1.5rem] border border-border-subtle bg-obsidian/65 px-5 py-4 transition hover:border-accent-amber/35 hover:bg-obsidian/80"
+              >
+                <p className="font-mono text-[0.65rem] uppercase tracking-[0.24em] text-accent-copper">Direct Email</p>
+                <p className="mt-3 break-all text-lg text-text-primary sm:text-xl">{emailAddress}</p>
+                <p className="mt-2 text-sm leading-6 text-text-secondary">
+                  Best for project discussions, hiring conversations, and collaborations.
+                </p>
+              </a>
             </div>
 
             <div className="flex w-full flex-wrap gap-3 lg:w-auto">

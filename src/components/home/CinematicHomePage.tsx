@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 
-import { experience, greeting, projects, socialMediaLinks } from "@/lib/data";
+import { experience, greeting, projects, resumeLinks, socialMediaLinks } from "@/lib/data";
 
 type FeaturedProject = {
   title: string;
@@ -25,7 +25,7 @@ const featuredProjects: FeaturedProject[] = [
       "Scaled a high-throughput filter layer by improving PostgreSQL sharding behavior and system-level query performance under multi-tenant production load.",
     metrics: ["40% faster queries", "100+ clients", "3-month delivery"],
     stack: ["PostgreSQL", "Sharding", "Performance Tuning", "System Design"],
-    href: "/resume",
+    href: resumeLinks.route,
     variant: "platform",
   },
   {
@@ -197,7 +197,7 @@ export default function CinematicHomePage() {
           </div>
           <div className="flex w-full flex-wrap items-center gap-2 sm:w-auto sm:justify-end sm:gap-3">
             <Link
-              href="/resume"
+              href={resumeLinks.route}
               className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-zinc-200 transition hover:border-amber-200/40 hover:bg-white/10"
             >
               Resume
@@ -232,18 +232,18 @@ export default function CinematicHomePage() {
                 Start a conversation
               </a>
               <Link
-                href="/resume"
+                href={resumeLinks.route}
                 className="w-full rounded-full border border-white/10 px-5 py-2.5 text-center text-sm font-medium text-zinc-200 transition duration-300 hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/5 sm:w-auto"
               >
                 Resume
               </Link>
               <a
-                href={greeting.resumeLink}
+                href={resumeLinks.download}
                 target="_blank"
                 rel="noreferrer"
                 className="rounded-full border border-transparent px-4 py-2.5 text-sm text-zinc-400 transition duration-300 hover:text-zinc-200"
               >
-                Master CV
+                Download PDF
               </a>
               <a
                 href={github}
@@ -499,18 +499,18 @@ export default function CinematicHomePage() {
                   Email
                 </a>
                 <Link
-                  href="/resume"
+                  href={resumeLinks.route}
                   className="w-full rounded-full border border-white/10 px-5 py-2.5 text-center text-sm font-medium text-zinc-200 transition hover:border-white/25 hover:bg-white/5 sm:w-auto"
                 >
                   Resume
                 </Link>
                 <a
-                  href={greeting.resumeLink}
+                  href={resumeLinks.download}
                   target="_blank"
                   rel="noreferrer"
                   className="w-full rounded-full border border-white/10 bg-white/[0.03] px-5 py-2.5 text-center text-sm text-zinc-300 transition hover:border-white/25 hover:bg-white/5 hover:text-zinc-100 sm:w-auto"
                 >
-                  Master CV
+                  Download PDF
                 </a>
               </div>
             </div>
