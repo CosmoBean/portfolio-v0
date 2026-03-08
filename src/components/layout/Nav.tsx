@@ -83,6 +83,8 @@ export default function Nav() {
       ? "bg-obsidian/78 backdrop-blur-xl supports-[backdrop-filter]:bg-obsidian/62"
       : "bg-transparent",
   );
+  const mobileCtaClassName =
+    "rounded-2xl border border-border-subtle bg-surface/50 px-4 py-3 text-center text-sm text-text-primary transition hover:border-accent-amber/25 hover:bg-surface/70";
 
   return (
     <header className={navClassName}>
@@ -224,14 +226,14 @@ export default function Nav() {
               <Link
                 href="/resume"
                 onClick={() => setMenuOpen(false)}
-                className="rounded-2xl border border-border-subtle bg-surface/50 px-4 py-3 text-center text-sm text-text-primary transition hover:border-accent-amber/25 hover:bg-surface/70"
+                className={mobileCtaClassName}
               >
                 Resume
               </Link>
               <Link
                 href="/contact"
                 onClick={() => setMenuOpen(false)}
-                className="rounded-2xl border border-accent-amber/25 bg-surface/65 px-4 py-3 text-center text-sm text-text-primary transition hover:border-accent-amber/45 hover:bg-surface/80"
+                className={mobileCtaClassName}
               >
                 Contact
               </Link>
