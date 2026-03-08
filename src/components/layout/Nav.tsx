@@ -224,14 +224,14 @@ export default function Nav() {
               <Link
                 href="/resume"
                 onClick={() => setMenuOpen(false)}
-                className="rounded-full border border-border-subtle px-4 py-3 text-center text-sm text-text-secondary"
+                className="rounded-2xl border border-border-subtle bg-surface/50 px-4 py-3 text-center text-sm text-text-primary transition hover:border-accent-amber/25 hover:bg-surface/70"
               >
                 Resume
               </Link>
               <Link
                 href="/contact"
                 onClick={() => setMenuOpen(false)}
-                className="rounded-full border border-accent-amber/30 bg-gradient-to-r from-accent-amber/15 via-accent-copper/10 to-accent-amber/15 px-4 py-3 text-center text-sm text-text-primary"
+                className="rounded-2xl border border-accent-amber/25 bg-surface/65 px-4 py-3 text-center text-sm text-text-primary transition hover:border-accent-amber/45 hover:bg-surface/80"
               >
                 Contact
               </Link>
