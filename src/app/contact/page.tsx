@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import CommandPageShell from "@/components/command-os/CommandPageShell";
+import ContactForm from "@/components/contact/ContactForm";
 import { contactLinks } from "@/lib/command-os-data";
 import { contactPageData, greeting, socialMediaLinks } from "@/lib/data";
 import { buildMetadata } from "@/lib/seo";
@@ -66,6 +67,14 @@ export default function ContactPage() {
             Recruiter path: resume is one click away, modules contain spec sheets, and experiments route contains postmortems.
           </div>
         </article>
+      </section>
+
+      <section className="mt-4">
+        <ContactForm
+          variant="command"
+          title="Send a message directly from this page."
+          description="Use this form for project outreach, hiring conversations, or collaboration notes. It keeps the interaction on-site instead of pushing you into a separate mail app."
+        />
       </section>
     </CommandPageShell>
   );

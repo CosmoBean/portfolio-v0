@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
+import ContactForm from "@/components/contact/ContactForm";
 import { socialMediaLinks } from "@/lib/data";
 
 const floatingTransition = {
@@ -75,6 +76,14 @@ export default function ContactCTA() {
                 LinkedIn
               </motion.a>
             </div>
+          </div>
+
+          <div className="relative mt-8">
+            <ContactForm
+              variant="landing"
+              title="Send a message without leaving the page."
+              description="Drop your name, email, and message here. Once delivery is configured, this will route straight into the inbox without bouncing you to a mail client."
+            />
           </div>
         </div>
       </div>
