@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
@@ -27,6 +27,7 @@ export default function Nav() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const lockedScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,6 +39,43 @@ export default function Nav() {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!menuOpen) {
+      return;
+    }
+
+    const { body, documentElement } = document;
+    const originalBodyStyles = {
+      overflow: body.style.overflow,
+      position: body.style.position,
+      top: body.style.top,
+      left: body.style.left,
+      right: body.style.right,
+      width: body.style.width,
+    };
+    const originalHtmlOverflow = documentElement.style.overflow;
+
+    lockedScrollY.current = window.scrollY;
+    documentElement.style.overflow = "hidden";
+    body.style.overflow = "hidden";
+    body.style.position = "fixed";
+    body.style.top = `-${lockedScrollY.current}px`;
+    body.style.left = "0";
+    body.style.right = "0";
+    body.style.width = "100%";
+
+    return () => {
+      documentElement.style.overflow = originalHtmlOverflow;
+      body.style.overflow = originalBodyStyles.overflow;
+      body.style.position = originalBodyStyles.position;
+      body.style.top = originalBodyStyles.top;
+      body.style.left = originalBodyStyles.left;
+      body.style.right = originalBodyStyles.right;
+      body.style.width = originalBodyStyles.width;
+      window.scrollTo(0, lockedScrollY.current);
+    };
+  }, [menuOpen]);
 
   const navClassName = clsx(
     "fixed inset-x-0 top-0 z-40 px-4 py-4 sm:px-6 lg:px-8",
@@ -136,7 +174,7 @@ export default function Nav() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 24 }}
             transition={{ duration: 0.24, ease: "easeOut" }}
-            className="mx-auto mt-3 max-w-7xl rounded-[2rem] border border-border-subtle bg-card/95 p-5 shadow-[0_18px_50px_rgba(0,0,0,0.26)] backdrop-blur-xl lg:hidden"
+            className="mx-auto mt-3 max-h-[calc(100svh-7.5rem)] max-w-7xl overflow-y-auto overscroll-contain rounded-[2rem] border border-border-subtle bg-card/95 p-5 shadow-[0_18px_50px_rgba(0,0,0,0.26)] backdrop-blur-xl [touch-action:pan-y] lg:hidden"
           >
             <div className="grid gap-2">
               {navigationItems.map((item) => (
