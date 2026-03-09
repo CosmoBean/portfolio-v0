@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Fraunces, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import "@/styles/globals.css";
@@ -96,6 +97,7 @@ export default function RootLayout({
           <PageTransition>{children}</PageTransition>
           <Footer />
         </div>
+        <Analytics />
       </body>
     </html>
   );
