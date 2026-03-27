@@ -82,6 +82,38 @@
   }
 }
 
+@keyframes loader-orbit {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-progress {
+  0% {
+    transform: translateX(-110%) scaleX(0.3);
+    opacity: 0.24;
+  }
+
+  35% {
+    transform: translateX(-8%) scaleX(0.72);
+    opacity: 0.92;
+  }
+
+  70% {
+    transform: translateX(72%) scaleX(0.46);
+    opacity: 0.66;
+  }
+
+  100% {
+    transform: translateX(220%) scaleX(0.22);
+    opacity: 0.2;
+  }
+}
+
 @theme inline {
   --color-obsidian: var(--bg-obsidian);
   --color-surface: var(--bg-surface);
@@ -208,6 +240,27 @@
       linear-gradient(to right, rgb(212 160 83 / 0.08) 1px, transparent 1px),
       linear-gradient(to bottom, rgb(212 160 83 / 0.08) 1px, transparent 1px);
     background-size: 56px 56px;
+  }
+
+  .loader-grid {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.045) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: radial-gradient(circle at center, black 36%, transparent 86%);
+  }
+
+  .loader-progress-track::after {
+    content: "";
+    position: absolute;
+    inset: 2px auto 2px 2px;
+    width: 34%;
+    border-radius: 999px;
+    background:
+      linear-gradient(90deg, rgb(59 130 246 / 0), rgb(96 165 250 / 0.8) 18%, rgb(212 160 83 / 0.95) 72%, rgb(212 160 83 / 0));
+    box-shadow: 0 0 18px rgb(96 165 250 / 0.28);
+    animation: loader-progress 3.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    transform-origin: left center;
   }
 
   .command-vignette {
