@@ -6,6 +6,7 @@ const resumeDriveFileId = "1NiZzGqSiUIyH-qJfMaAL2Qa4xoFhybi5";
 
 export const resumeLinks = {
     route: "/resume",
+    external: "https://cosmobean.github.io/resume-minimal/",
     view: `https://drive.google.com/file/d/${resumeDriveFileId}/view?usp=sharing`,
     preview: `https://drive.google.com/file/d/${resumeDriveFileId}/preview`,
     download: `https://drive.google.com/uc?export=download&id=${resumeDriveFileId}`,
@@ -26,7 +27,7 @@ export const greeting = {
     logo_name: "Cosmobean",
     nickname: "cosmobean",
     subTitle: "AI Engineer & Full Stack Developer",
-    resumeLink: resumeLinks.view,
+    resumeLink: resumeLinks.external,
     portfolio_repository: "https://github.com/cosmobean/portfolio-v0",
     githubProfile: "https://github.com/cosmobean",
 };

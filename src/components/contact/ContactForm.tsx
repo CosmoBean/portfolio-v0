@@ -49,6 +49,10 @@ export default function ContactForm({
       ? "rounded-[1.15rem] border border-white/10 bg-black/20 px-4 py-3 text-sm text-text-primary outline-none transition placeholder:text-text-secondary/65 focus:border-accent-amber/45 focus:bg-black/30"
       : "rounded-xl border border-borderSoft bg-background/50 px-4 py-3 text-sm text-textPrimary outline-none transition placeholder:text-textMuted/75 focus:border-[color:var(--color-goldSoft)] focus:bg-background/65";
   const helperClassName = variant === "landing" ? "text-text-secondary" : "text-textMuted";
+  const idleMessage =
+    variant === "landing"
+      ? "Drop your email and message here."
+      : "Send a message and I’ll get back to you.";
 
   function setField(field: keyof ContactFormValues, value: string) {
     setValues((current) => ({
@@ -179,7 +183,7 @@ export default function ContactForm({
                   : helperClassName,
             )}
           >
-            {status.message || "Messages submit inside the site. If email delivery is not configured yet, you’ll get a clear fallback notice."}
+            {status.message || idleMessage}
           </p>
 
           <button
