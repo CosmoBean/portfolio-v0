@@ -25,11 +25,16 @@ function isActive(pathname: string, href: string) {
 
 export default function Nav() {
   const pathname = usePathname();
+  const isLandingPage = pathname === "/";
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const lockedScrollY = useRef(0);
 
   useEffect(() => {
+    if (isLandingPage) {
+      return;
+    }
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 16);
     };
@@ -38,7 +43,7 @@ export default function Nav() {
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isLandingPage]);
 
   useEffect(() => {
     if (!menuOpen) {
@@ -85,6 +90,10 @@ export default function Nav() {
   );
   const mobileCtaClassName =
     "rounded-2xl border border-border-subtle bg-surface/50 px-4 py-3 text-center text-sm text-text-primary transition hover:border-accent-amber/25 hover:bg-surface/70";
+
+  if (isLandingPage) {
+    return null;
+  }
 
   return (
     <header className={navClassName}>

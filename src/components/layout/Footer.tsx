@@ -1,3 +1,6 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { greeting, socialMediaLinks } from "@/lib/data";
 
@@ -8,6 +11,12 @@ const iconMap = {
 } as const;
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  if (pathname === "/") {
+    return null;
+  }
+
   return (
     <footer className="relative mt-16 border-t border-border-subtle/80 bg-gradient-to-b from-transparent to-card/65">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent-amber/30 to-transparent" />
