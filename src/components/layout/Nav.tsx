@@ -3,9 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import clsx from "clsx";
 import { ChevronDown, Menu, X } from "lucide-react";
+import { easeDrawer } from "@/lib/animations";
 import { domainSummaries } from "@/lib/domains";
 import { greeting } from "@/lib/data";
 
@@ -25,6 +26,7 @@ function isActive(pathname: string, href: string) {
 
 export default function Nav() {
   const pathname = usePathname();
+  const reduceMotion = useReducedMotion();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const lockedScrollY = useRef(0);
@@ -84,7 +86,7 @@ export default function Nav() {
       : "bg-transparent",
   );
   const mobileCtaClassName =
-    "rounded-2xl border border-border-subtle bg-surface/50 px-4 py-3 text-center text-sm text-text-primary transition hover:border-accent-amber/25 hover:bg-surface/70";
+    "motion-pill rounded-2xl border border-border-subtle bg-surface/50 px-4 py-3 text-center text-sm text-text-primary hover:border-accent-amber/25 hover:bg-surface/70";
 
   return (
     <header className={navClassName}>
@@ -146,13 +148,13 @@ export default function Nav() {
         <div className="hidden items-center gap-2 lg:flex">
           <Link
             href="/resume"
-            className="rounded-full border border-border-subtle px-4 py-2 text-sm text-text-secondary transition hover:border-accent-amber/35 hover:text-text-primary"
+            className="motion-pill rounded-full border border-border-subtle px-4 py-2 text-sm text-text-secondary hover:border-accent-amber/35 hover:text-text-primary"
           >
             Resume
           </Link>
           <Link
             href="/contact"
-            className="rounded-full border border-accent-amber/30 bg-gradient-to-r from-accent-amber/15 via-accent-copper/10 to-accent-amber/15 px-4 py-2 text-sm text-text-primary transition hover:border-accent-amber/45"
+            className="motion-pill rounded-full border border-accent-amber/30 bg-gradient-to-r from-accent-amber/15 via-accent-copper/10 to-accent-amber/15 px-4 py-2 text-sm text-text-primary hover:border-accent-amber/45"
           >
             Contact
           </Link>
@@ -161,7 +163,7 @@ export default function Nav() {
         <button
           type="button"
           onClick={() => setMenuOpen((current) => !current)}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border-subtle text-text-primary lg:hidden"
+          className="motion-pill inline-flex h-11 w-11 items-center justify-center rounded-full border border-border-subtle text-text-primary lg:hidden"
           aria-expanded={menuOpen}
           aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
         >
@@ -172,10 +174,10 @@ export default function Nav() {
       <AnimatePresence>
         {menuOpen ? (
           <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 24 }}
-            transition={{ duration: 0.24, ease: "easeOut" }}
+            initial={reduceMotion ? false : { opacity: 0, x: 24, scale: 0.985 }}
+            animate={reduceMotion ? undefined : { opacity: 1, x: 0, scale: 1 }}
+            exit={reduceMotion ? undefined : { opacity: 0, x: 24, scale: 0.99 }}
+            transition={{ duration: 0.26, ease: easeDrawer }}
             className="mx-auto mt-3 max-h-[calc(100svh-7.5rem)] max-w-7xl overflow-y-auto overscroll-contain rounded-[2rem] border border-border-subtle bg-card/95 p-5 shadow-[0_18px_50px_rgba(0,0,0,0.26)] backdrop-blur-xl [touch-action:pan-y] lg:hidden"
           >
             <div className="grid gap-2">
@@ -185,7 +187,7 @@ export default function Nav() {
                   href={item.href}
                   onClick={() => setMenuOpen(false)}
                   className={clsx(
-                    "rounded-2xl px-4 py-3 text-sm transition",
+                    "rounded-2xl px-4 py-3 text-sm transition-[background-color,color] duration-200",
                     isActive(pathname, item.href)
                       ? "bg-surface text-text-primary"
                       : "text-text-secondary hover:bg-surface/70 hover:text-text-primary",
@@ -198,7 +200,7 @@ export default function Nav() {
                 href="/domains"
                 onClick={() => setMenuOpen(false)}
                 className={clsx(
-                  "rounded-2xl px-4 py-3 text-sm transition",
+                  "rounded-2xl px-4 py-3 text-sm transition-[background-color,color] duration-200",
                   pathname === "/domains" || pathname.startsWith("/domains/")
                     ? "bg-surface text-text-primary"
                     : "text-text-secondary hover:bg-surface/70 hover:text-text-primary",
