@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import clsx from "clsx";
-import { getRevealInitial, springTransition, type RevealDirection } from "@/lib/animations";
+import { getRevealInitial, revealTransition, type RevealDirection } from "@/lib/animations";
 
 interface ScrollRevealProps {
   children: React.ReactNode;
@@ -32,8 +32,8 @@ export default function ScrollReveal({
     <motion.div
       ref={ref}
       initial={getRevealInitial(direction)}
-      animate={isInView ? { opacity: 1, x: 0, y: 0 } : getRevealInitial(direction)}
-      transition={{ ...springTransition, delay, duration }}
+      animate={isInView ? { opacity: 1, x: 0, y: 0, scale: 1 } : getRevealInitial(direction)}
+      transition={{ ...revealTransition, delay, duration }}
       className={clsx(className)}
     >
       {children}

@@ -29,10 +29,11 @@ export default function AnimatedCard({
 
   const card = (
     <motion.div
-      whileHover={reduceMotion ? undefined : { y: -6 }}
+      whileHover={reduceMotion ? undefined : { y: -4, scale: 1.01 }}
+      whileTap={reduceMotion ? undefined : { scale: 0.985 }}
       transition={hoverSpring}
       className={clsx(
-        "group relative overflow-hidden rounded-[2rem] border border-border-subtle bg-card/76 p-6 backdrop-blur-sm before:absolute before:inset-0 before:bg-gradient-to-br before:opacity-0 before:transition-opacity before:duration-300 hover:before:opacity-100",
+        "group relative overflow-hidden rounded-[2rem] border border-border-subtle bg-card/76 p-6 backdrop-blur-sm transition-[border-color,box-shadow] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] before:absolute before:inset-0 before:bg-gradient-to-br before:opacity-0 before:transition-opacity before:duration-200 hover:before:opacity-100",
         glowClassMap[glowColor],
         className,
       )}

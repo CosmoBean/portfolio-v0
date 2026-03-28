@@ -1,6 +1,3 @@
-"use client";
-
-import { motion, useReducedMotion } from "framer-motion";
 import clsx from "clsx";
 
 type TagVariant = "metric" | "tech" | "domain";
@@ -22,18 +19,15 @@ export default function Tag({
   className,
   variant = "tech",
 }: TagProps) {
-  const reduceMotion = useReducedMotion();
-
   return (
-    <motion.span
-      whileHover={reduceMotion ? undefined : { scale: 1.03 }}
+    <span
       className={clsx(
-        "inline-flex items-center rounded-full px-3 py-1 text-[0.7rem] font-medium uppercase tracking-[0.18em]",
+        "inline-flex items-center rounded-full px-3 py-1 text-[0.7rem] font-medium uppercase tracking-[0.18em] transition-colors duration-200",
         variantClassMap[variant],
         className,
       )}
     >
       {children}
-    </motion.span>
+    </span>
   );
 }
